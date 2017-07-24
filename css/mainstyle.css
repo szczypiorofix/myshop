@@ -1,0 +1,14 @@
+/* 
+    Created on : 2017-07-24, 16:22:02
+    Author     : Piotrek
+*/
+@CHARSET "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #222222;
+    color: #eeeeee;
+    
+}

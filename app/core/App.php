@@ -24,15 +24,32 @@ class App {
         define('IMAGES', ROOT.'images'.DS);
         define('MEDIA', 'media'.DS);
         define('DB_MYSQL', APP_CORE_PATH.'mysql'.DS);
-        define('DB_UPDATES', DB_MYSQL.'updates'.DS);
         define('UPLOADED_IMAGES', MEDIA.'images'.DS);
         define('UPLOADED_FILES', MEDIA.'files'.DS);
         define('BASE_HREF', \core\Config::get("BASE_HREF"));
         echo 'APP.INIT();';
-        self::show();
+        //var_dump($_SERVER);
+        
+        $mymodel = new \core\HomeModel();
+        framework\Registry::set($mymodel);
+        
+        $read = framework\Registry::get('core\homemodel');
+        echo $read->getName();
+        
+        framework\Event::registerCallback('job', new LogCallback());
+        
+        framework\Event::registerCallback('job', function ($data) {
+            echo "Czyszczenie pamięci " . PHP_EOL;
+            var_dump($data);
+        });
+        
+        $data = new MyNewJob();
+        $data->job();
+        
+        self::start();
     }
     
-    private static function show() {
+    private static function start() {
         include ROOT.'view'.DS.'index.html';
     }
 }

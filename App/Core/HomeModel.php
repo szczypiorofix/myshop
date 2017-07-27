@@ -1,7 +1,7 @@
 <?php
 
 namespace Core;
-use Core\Framework\Model;
+use Core\Framework\MVC\Model;
 
 class HomeModel extends Model {
    

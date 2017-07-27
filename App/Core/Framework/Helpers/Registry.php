@@ -1,11 +1,14 @@
 <?php
 
-namespace Core\Framework;
+namespace Core\Framework\Helpers;
 use Exception;
 
 class Registry {
     
     static private $_store = array();
+    
+    private function __construct() {}
+    private function __clone() {}
     
     static public function set($object, $name = null) {
         $name = (!is_null($name)) ?: get_class($object);
@@ -26,11 +29,8 @@ class Registry {
     }
     
     static public function get($name) {
-        //print_r(self::$_store);
         if (!self::contains($name)) {
             throw new Exception('NIE MA TAKIEGO OBIEKTU: '.$name);
-            //echo '<h3>NIE MA TAKIEGO OBIEKTU: '.$name.'</h3>';
-            //return false;
         }
         return self::$_store[$name];
     }

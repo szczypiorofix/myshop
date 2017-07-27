@@ -10,7 +10,7 @@ use RuntimeException;
  */
 class AutoLoader {
     
-    const DIR_CLASSES = 'app';
+    const DIR_CLASSES = BASE_DIR.'App';
 
     private function __construct() {}
     private function __clone() {}

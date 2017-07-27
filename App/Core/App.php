@@ -2,11 +2,6 @@
 
 namespace Core;
 
-/**
- * This is the first class of the shop app.
- *
- * @author Piotrek
- */
 class App {
     
     const DEFAULT_CLASS = 'postlist'; // DEFAULT PAGE
@@ -18,39 +13,37 @@ class App {
     
     public static function init() {
         define("DS", DIRECTORY_SEPARATOR);
-        define("ROOT", getcwd().DS);
-        define("APP_PATH", ROOT . 'app' . DS);
-        define("APP_CORE_PATH", APP_PATH . 'core' . DS);
-        define('APP_LIBS', APP_CORE_PATH.'libs'.DS);
-        define("CONFIG_PATH", "");
-        define('DB_PATH', APP_CORE_PATH . "database" . DS);
-        define('PAGES', APP_PATH . "pages" . DS);
-        define('IMAGES', ROOT.'images'.DS);
-        define('MEDIA', 'media'.DS);
-        define('DB_MYSQL', APP_CORE_PATH.'mysql'.DS);
-        define('UPLOADED_IMAGES', MEDIA.'images'.DS);
-        define('UPLOADED_FILES', MEDIA.'files'.DS);
-        define('BASE_HREF', \core\Config::get("BASE_HREF"));
-        echo 'APP.INIT();';
-        //var_dump($_SERVER);
+        define("CONFIG_FILE", BASE_DIR."config");
+        //define('BASE_HREF', getcwd().DS);
         
-        $mymodel = new \core\HomeModel();
-        framework\Registry::set($mymodel);
+//        echo 'APP.INIT();';
+//        //var_dump($_SERVER);
+//        
+//        $mymodel = new \Core\HomeModel();
+//        Framework\Helpers\Registry::set($mymodel);
+//        
+//        $read = Framework\Helpers\Registry::get('core\homemodel');
+//        echo $read->getName();
+//        
+//        Framework\Helpers\Event::registerCallback('job', new LogCallback());
+//        
+//        Framework\Helpers\Event::registerCallback('job', function ($data) {
+//            echo "Czyszczenie pamięci " . PHP_EOL;
+//            var_dump($data);
+//        });
+//        
+//        $data = new MyNewJob();
+//        $data->job();
+//        
+//        
+//        
+//        
+//        $router = new \Routes\MainRouter();
+//        
         
-        $read = framework\Registry::get('core\homemodel');
-        echo $read->getName();
         
-        framework\Event::registerCallback('job', new LogCallback());
         
-        framework\Event::registerCallback('job', function ($data) {
-            echo "Czyszczenie pamięci " . PHP_EOL;
-            var_dump($data);
-        });
-        
-        $data = new MyNewJob();
-        $data->job();
-        
-        self::route();
+        //self::route();
         self::start();
     }
     
@@ -98,6 +91,12 @@ class App {
     }
     
     private static function start() {
-        include ROOT.'view'.DS.'index.html';
+        
+        $model = new \Models\DefaultModel();
+        $controller = new \Controllers\DefaultController($model);
+        $view = new \Views\DefaultView($controller, $model);
+        echo $view->show();
+        
+        //include_once BASE_DIR.'App'.DS.'Views'.DS.'index.php';
     }
 }

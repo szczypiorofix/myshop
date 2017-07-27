@@ -1,6 +1,7 @@
 <?php
 
-namespace core;
+namespace Core;
+use RuntimeException;
 
 /**
  * AutoLoader class

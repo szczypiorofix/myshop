@@ -1,6 +1,6 @@
 <?php
 
     // ####### AUTOLOADER CLASS
-    require_once 'app/core/AutoLoader.php';
+    require_once 'App/Core/AutoLoader.php';
     
-    \core\App::init();
+    \Core\App::init();

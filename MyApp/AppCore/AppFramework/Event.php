@@ -1,6 +1,7 @@
 <?php
 
-namespace core\framework;
+namespace Core\Framework;
+use Exception;
 
 class Event {
     

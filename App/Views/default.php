@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <base href="<?=BASE_HREF?>" target="_blank">
         <meta charset="UTF-8">
         <meta HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +18,14 @@
     <body>
         <div class="maindiv">
             <h2>This is my shop!</h2>
-            <img src="icon.ico" alt="" class="img-responsive"/>
             <p>Witaj <?=$params['imie']?> <?=$params['nazwisko']?> !</p>
+            <div>
+                <?php 
+                
+                    var_dump($params);
+                
+                ?>
+            </div>
         </div>
         <script src="js/<?=$params['js']?>"></script>
     </body>

@@ -1,6 +1,6 @@
 <?php
 
-// ###### DEFINIOWANIE ŚCIEŻEK DOSTĘPU ###### //
+// ####### DEFINIOWANIE ŚCIEŻEK DOSTĘPÓW ####### //
 define("DS", DIRECTORY_SEPARATOR);
 define('BASE_DIR', dirname(__DIR__) . DS);
 define("CONFIG_FILE", BASE_DIR . "config");
@@ -15,8 +15,9 @@ define("FRAMEWORK_DIR", APPCORE_DIR . "Framework" . DS);
 define("HELPERS_DIR", FRAMEWORK_DIR . "Helpers" . DS);
 define("MVC_DIR", FRAMEWORK_DIR . "MVC" . DS);
 
-// ####### AUTOLOADER CLASS ####### //
-require_once APPCORE_DIR . 'AutoLoader.php';
+// ####### KLASA AUTOLOADER ####### //
+require_once APPCORE_DIR.'AutoLoader.php';
 
-// ####### APPLICATION LAUNCH ####### //
+// ####### START APLIKACJI ####### //
+define("BASE_HREF", \Core\Config::get("BASE_HREF") );
 \Core\App::init();

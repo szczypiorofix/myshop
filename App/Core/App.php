@@ -2,47 +2,55 @@
 
 namespace Core;
 
+/**
+ * Klasa App - główna klasa aplikacji.
+ * @author Piotr Wróblewski <poczta@wroblewskipiotr.pl>
+ */
 class App {
     
-    const DEFAULT_CLASS = 'postlist'; // DEFAULT PAGE
-    const DEFAULT_METHOD = 'defaultmethod';
+    const DEFAULT_CLASS = 'home'; // DEFAULT PAGE
+    const DEFAULT_METHOD = 'index';
     private static $class = self::DEFAULT_CLASS;
     
     private function __construct() {}
     private function __clone() {}
     
+    /**
+     * App::init(); - funkcja inicjująca wywołaie aplikacji.
+     */
     public static function init() {
         
-        //define('BASE_HREF', getcwd().DS);
         
-//        echo 'APP.INIT();';
-//        //var_dump($_SERVER);
-//        
-//        $mymodel = new \Core\HomeModel();
-//        Framework\Helpers\Registry::set($mymodel);
-//        
-//        $read = Framework\Helpers\Registry::get('core\homemodel');
-//        echo $read->getName();
-//        
-//        Framework\Helpers\Event::registerCallback('job', new LogCallback());
-//        
-//        Framework\Helpers\Event::registerCallback('job', function ($data) {
-//            echo "Czyszczenie pamięci " . PHP_EOL;
-//            var_dump($data);
-//        });
-//        
-//        $data = new MyNewJob();
-//        $data->job();
-//        
-//        
-//        
-//        
-//        $router = new \Routes\MainRouter();
-//        
+        echo 'APP.INIT();';
+        //var_dump($_SERVER);
+        
+        $mymodel = new \Models\DefaultModel();
+        Framework\Helpers\Registry::set($mymodel);
+        
+        var_dump(Framework\Helpers\Registry::getAll());
+        
+        //$read = Framework\Helpers\Registry::get('models\homemodel');
+        //echo $read->getName();
+        
+        Framework\Helpers\Event::registerCallback('job', new LogCallback());
+        
+        Framework\Helpers\Event::registerCallback('job', function ($data) {
+            echo "Czyszczenie pamięci " . PHP_EOL;
+            var_dump($data);
+        });
+        
+        $data = new MyNewJob();
+        $data->job();
         
         
         
-        //self::route();
+        
+        $router = new \Routes\MainRouter();
+        
+        
+        
+        
+        self::route();
         self::launch();
     }
     

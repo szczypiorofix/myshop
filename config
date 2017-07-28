@@ -1,3 +1,4 @@
+BASE_HREF=http://myshop.pl
 DB_HOST=localhost
 DB_NAME=mysite
 DB_USER=root

@@ -28,6 +28,10 @@ class Registry {
         return false;
     }
     
+    static public function getAll() {
+        return self::$_store;
+    }
+    
     static public function get($name) {
         if (!self::contains($name)) {
             throw new Exception('NIE MA TAKIEGO OBIEKTU: '.$name);

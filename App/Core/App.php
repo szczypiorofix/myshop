@@ -12,8 +12,7 @@ class App {
     private function __clone() {}
     
     public static function init() {
-        define("DS", DIRECTORY_SEPARATOR);
-        define("CONFIG_FILE", BASE_DIR."config");
+        
         //define('BASE_HREF', getcwd().DS);
         
 //        echo 'APP.INIT();';
@@ -44,7 +43,7 @@ class App {
         
         
         //self::route();
-        self::start();
+        self::launch();
     }
     
     
@@ -90,13 +89,10 @@ class App {
         }
     }
     
-    private static function start() {
-        
+    private static function launch() {
         $model = new \Models\DefaultModel();
         $controller = new \Controllers\DefaultController($model);
         $view = new \Views\DefaultView($controller, $model);
         echo $view->show();
-        
-        //include_once BASE_DIR.'App'.DS.'Views'.DS.'index.php';
     }
 }

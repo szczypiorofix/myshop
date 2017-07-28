@@ -1,6 +1,6 @@
 <?php
 namespace Views;
-use Template\DefaultTemplate;
+use Templates\DefaultTemplate;
 
 class DefaultView extends \Core\Framework\MVC\View {
     

@@ -11,14 +11,15 @@
         <meta property="og:image" content="https://wroblewskipiotr.pl/blackboard/icon.png">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
         <link rel="icon" href="icon.ico">
-        <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
-        <title>My Shop</title>
+        <link rel="stylesheet" type="text/css" href="css/<?=$params['css']?>">
+        <title><?=$params['pageTitle']?></title>
     </head>
     <body>
         <div class="maindiv">
             <h2>This is my shop!</h2>
             <img src="icon.ico" alt="" class="img-responsive"/>
+            <p>Witaj <?=$params['imie']?> <?=$params['nazwisko']?> !</p>
         </div>
-        <script src="js/mainscript.js"></script>
+        <script src="js/<?=$params['js']?>"></script>
     </body>
 </html>

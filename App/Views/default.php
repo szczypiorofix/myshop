@@ -11,7 +11,8 @@
         <meta property="og:title" content="Wróblewski Piotr - My Shop">
         <meta property="og:image" content="https://wroblewskipiotr.pl/blackboard/icon.png">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
-        <link rel="icon" href="icon.ico">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/<?=$params['css']?>">
         <title><?=$params['pageTitle']?></title>
     </head>
@@ -22,9 +23,12 @@
             <div>
                 <?php 
                 
-                    var_dump($params);
+                    //var_dump($params);
                 
                 ?>
+            </div>
+            <div>
+                <img src="images/landscape1.jpg" alt=""/>
             </div>
         </div>
         <script src="js/<?=$params['js']?>"></script>

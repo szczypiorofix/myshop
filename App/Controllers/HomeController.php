@@ -3,7 +3,7 @@
 namespace Controllers;
 
 /**
- * Kontroler Home, która jest stroną domyślną
+ * Kontroler Home.
  *
  * @author Piotr Wróblewski <poczta@wroblewskipiotr.pl>
  */
@@ -15,11 +15,11 @@ class HomeController extends \Core\Framework\MVC\Controller {
         $this->model = $model;
     }
     
-    public function home() {
-        echo '<br>Home<br>';
+    public function index() {
+        
     }
     
-    public function index() {
-        echo '<br>Index<br>';
+    public function __toString() {
+        return 'This is HomeController.';
     }
 }

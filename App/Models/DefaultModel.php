@@ -8,7 +8,14 @@ class DefaultModel extends \Core\Framework\MVC\Model {
         'pageTitle' => 'MyShop',
         'css' => 'mainstyle.css',
         'js' => 'mainscript.js',
-        'imie' => 'Grzegorz',
-        'nazwisko' => 'Brzęczyszczykiewicz'
-    ); 
+        'Model' => 'DefaultModel'
+    );
+    
+    public function __toString() {
+        return 'This is DefaultModel.';
+    }
+    
+    public function setData($data) {
+        $this->data[] = $data;
+    }
 }

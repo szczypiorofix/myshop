@@ -1,5 +1,6 @@
 <?php
 namespace Core;
+use Core\FrameworkException;
 
 class Config {
     
@@ -17,13 +18,23 @@ class Config {
         return self::$instance;
     }
 
-    public static function configFileExists() {
+    private static function configFileExists() {
         return (file_exists(CONFIG_FILE) && is_file(CONFIG_FILE));
     }
 
     public static function get($key) {
-        if (isset(self::getInstance()->config_data[$key])) {
-           return self::getInstance()->config_data[$key];
+        if (self::configFileExists()) {
+            if (isset(self::getInstance()->config_data[$key])) {
+                return self::getInstance()->config_data[$key];
+            }
+        }
+        else {
+            try {
+                throw new FrameworkException("Plik konfiguracji 'config' nie istnieje!");
+            } catch (FrameworkException $ex) {
+                echo $ex->showError();
+            }
+            
         }
         return NULL;
     }

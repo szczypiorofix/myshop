@@ -8,6 +8,15 @@ class HomeModel extends \Core\Framework\MVC\Model {
         'pageTitle' => 'MyShop',
         'css' => 'mainstyle.css',
         'js' => 'mainscript.js',
-        'content' => 'This is home page!'
-    ); 
+        'Model' => 'HomeModel'
+    );
+    
+    public function __toString() {
+        return 'This is HomeModel.';
+    }
+
+    public function setData($data) {
+        $this->data[] = $data;
+    }
+
 }

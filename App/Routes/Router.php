@@ -15,6 +15,13 @@ class Router {
         throw new FrameworkException('Błąd!!! Podany route już istnieje!');
     }
     
+    static public function routeExists($route) {
+        if (isset(self::$routes[$route])) {
+            return true;
+        }
+        return false;
+    }
+    
     static public function getAllRoutes() {
         return self::$routes;
     }
@@ -38,6 +45,12 @@ class Router {
             return self::$routes[$route];
         }
         throw new FrameworkException('Brak elementu '.$route.' !!!');
+    }
+    
+    static public function redirect404() {
+        header("HTTP/1.0 404 Not Found");
+        header("Location: page404.html");
+        exit();
     }
     
 }

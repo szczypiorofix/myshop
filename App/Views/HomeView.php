@@ -14,6 +14,10 @@ class HomeView extends \Core\Framework\MVC\View {
     }
     
     public function show() {
-        return DefaultTemplate::getTemplate($this->model->data);
+        return DefaultTemplate::getTemplate(array('model' => $this->model, 'view' => $this, 'controller' => $this->controller, 'modelData' => $this->model->data));
+    }
+    
+    public function __toString() {
+        return 'This is HomeView.';
     }
 }

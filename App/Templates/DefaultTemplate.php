@@ -3,11 +3,12 @@
 namespace Templates;
 
 class DefaultTemplate {
-    const DEFAULT_TEMPLATE_FILENAME = 'default.php';
+    const DEFAULT_TEMPLATE_FILENAME = TEMPLATES_DIR.'default.php';
+    
     private function __construct() {}
     private function __clone() {}
 
     public static function getTemplate($params) {
-        include_once VIEWS_DIR . self::DEFAULT_TEMPLATE_FILENAME;
+        include_once self::DEFAULT_TEMPLATE_FILENAME;
     }
 }

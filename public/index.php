@@ -1,5 +1,4 @@
 <?php
-
 // ####### DEFINIOWANIE ŚCIEŻEK DOSTĘPÓW ####### //
 define("DS", DIRECTORY_SEPARATOR);
 define('BASE_DIR', dirname(__DIR__) . DS);
@@ -19,5 +18,5 @@ define("MVC_DIR", FRAMEWORK_DIR . "MVC" . DS);
 require_once APPCORE_DIR.'AutoLoader.php';
 
 // ####### START APLIKACJI ####### //
-define("BASE_HREF", \Core\Config::get("BASE_HREF") );
+define("BASE_HREF", \Core\Config::get("BASE_HREF"));
 \Core\App::init();

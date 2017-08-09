@@ -1,6 +1,11 @@
 <?php
 
 namespace Core;
+use Routes\Router;
+use Core\FrameworkException;
+//use Models;
+//use Controllers;
+use Views;
 
 /**
  * Klasa App - główna klasa aplikacji.
@@ -8,9 +13,9 @@ namespace Core;
  */
 class App {
     
-    const DEFAULT_CLASS = 'home'; // DEFAULT PAGE
+    const DEFAULT_CLASS = 'default'; // DEFAULT PAGE
     const DEFAULT_METHOD = 'index';
-    private static $useDefaultClass = true;
+    private static $useDefaultController = true;
     private static $useDefaultMethod = true;
     private static $class = self::DEFAULT_CLASS;
     private static $method = self::DEFAULT_METHOD;
@@ -59,30 +64,66 @@ class App {
         
         
         try {
-            \Routes\Router::addRoute('', 'HomeController', 'index');
-            \Routes\Router::addRoute('home', 'HomeController', 'home');        
-            \Routes\Router::addRoute('home', 'HomeController', 'home');            
-        } catch (\Core\FrameworkException $ex) {
+            Router::addRoute('', 'HomeController', 'index');
+            Router::addRoute('default', 'DefaultController', 'default');
+            Router::addRoute('home', 'HomeController', 'home');
+        } catch (FrameworkException $ex) {
             echo $ex->showError();
         }
         
-        //var_dump(\Routes\Router::getAllRoutes());
-        
-        
-        
-        
         $url = self::parseUrl();
-        //var_dump($url);
-        echo $url[0].'<br>';
-        //print_r (\Routes\Router::getMethod($url[0]));
+        if (!isset($url[0])) {
+            self::$controller = self::DEFAULT_CLASS;
+        }
+        else {
+            if (Router::routeExists($url[0])) {
+                self::$controller = $url[0];
+                unset($url[0]);
+                self::$useDefaultController = false;
+            }
+            else {
+                Router::redirect404();
+            }
+        }
+
+        // Tworzenie modelu
+        self::$model = "\Models\\".ucwords(self::$controller)."Model";
+        self::$model = new self::$model();
         
-        self::$controller = self::$class;
+        // Tworzenie kontrolera
+        self::$controller = "\Controllers\\".ucwords(self::$controller)."Controller";
+        self::$controller = new self::$controller(self::$model);
+
+        if (!self::$useDefaultController) {
+            if (isset($url[1]) || method_exists(self::$controller, self::$method)) {
+                self::$method = $url[1]; 
+                unset($url[1]);
+            }
+            else {
+                self::$method = self::DEFAULT_METHOD;
+            }            
+        }
         
-        self::$model = new \Models\DefaultModel();
-        self::$controller = new \Controllers\DefaultController(self::$model);
-        self::$view = new \Views\DefaultView(self::$controller, self::$model);
+
+        echo 'Controller: '.self::$controller.'<br>';
+        echo 'Method: '.self::$method.'<br>';
+        
+        $params = $url ? array_values($url) : [];
+        call_user_func_array([self::$controller, self::$method], $params);
+        
+        
+        
+        //self::$model
+        
+        self::$model->setData($url);
+        
+        
+        //self::$controller = "\Controllers\\".ucwords(self::$controller)."Controller";
+        //self::$controller = new self::$controller(self::$model);
+        
+        //self::$controller = new Controllers\HomeController(self::$model);
+        self::$view = new Views\HomeView(self::$controller, self::$model);
         echo self::$view->show();
-        //self::route();
     }
     
     private static function fileExists($filename) {

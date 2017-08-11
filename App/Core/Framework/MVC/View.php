@@ -4,5 +4,7 @@ namespace Core\Framework\MVC;
 
 abstract class View {
     
-    public abstract function show();
+    const DEFAULT_TEMPLATE_FILENAME = TEMPLATES_DIR.'default.php';
+    
+    public abstract function show($params = []);
 }

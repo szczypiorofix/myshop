@@ -1,23 +1,14 @@
 <?php
 namespace Views;
-use Templates\DefaultTemplate;
 
 class DefaultView extends \Core\Framework\MVC\View {
     
-    private $model;
-    private $controller;
-    
-    public function __construct(\Core\Framework\MVC\Controller$controller, \Core\Framework\MVC\Model $model) {
-        $this->controller = $controller;
-        $this->model = $model;
+    public function __construct() {
     }
     
-    public function show() {
-        return DefaultTemplate::getTemplate(array(
-            'model' => $this->model,
-            'view' => $this,
-            'controller' => $this->controller,
-            'modelData' => $this->model->data));
+    public function show($params = []) {
+        //var_dump($params);
+        include_once parent::DEFAULT_TEMPLATE_FILENAME;
     }
     
     public function __toString() {

@@ -1,3 +1,4 @@
+<?php var_dump($params); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,15 +14,15 @@
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['modelData']['css']?>">
-        <title><?=$params['modelData']['pageTitle']?></title>
+        <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
+        <title></title>
     </head>
     <body>
         <div class="maindiv">
             <h2 style="text-align: center;">..:: MyShop ::..</h2>
             <div>
                 <?php
-                    var_dump($params);
+                    //var_dump($params);
                     //print Templates\DefaultTemplate::class;
                     //echo '<br>';
                     //var_dump(get_loaded_extensions());
@@ -44,9 +45,9 @@
                 ?>
             </div>
             <div style="width: 90%; margin: auto;">
-                <img src="<?=BASE_HREF?>/images/landscape1.jpg" alt=""/>
+                <img src="images/landscape1.jpg" alt=""/>
             </div>
         </div>
-        <script src="<?=BASE_HREF?>/js/<?=$params['modelData']['js']?>"></script>
+        <script src="js/<?=$params['settings']['js']?>"></script>
     </body>
 </html>

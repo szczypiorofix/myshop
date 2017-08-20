@@ -117,6 +117,11 @@ class App {
         call_user_func_array([self::$controller, self::$method], $params);
     }
     
+    /**
+     * Metoda sprawdzająca obecność pliu na serwerze o podanej nazwie - case sensitive.
+     * @param type $filename - nazwa pliku
+     * @return boolean - true jeśli plik istnieje
+     */
     private static function fileExists($filename) {
         if (file_exists($filename)) {
             return true;
@@ -130,6 +135,10 @@ class App {
         return false;
     }
     
+    /**
+     * Metoda rozbijająca url na tablicę parametrów.
+     * @return type - zwracana tablica parametrów url
+     */
     private static function parseUrl()
     {
         if (filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING) !== NULL) {

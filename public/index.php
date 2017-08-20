@@ -1,6 +1,6 @@
 <?php
 
-//$url = "https://www.wroblewskipiotr.pl/gethalloffameresults.php";
+//$url = "www.google.pl";
 //$ch = curl_init($url);
 //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //$result = curl_exec($ch);

@@ -12,16 +12,18 @@
         <meta property="og:title" content="Wróblewski Piotr - My Shop">
         <meta property="og:image" content="https://wroblewskipiotr.pl/blackboard/icon.png">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<!--        <link rel="icon" type="image/x-icon" href="<?=BASE_HREF?>favicon.ico" />-->
+<!--        <link rel="shortcut icon" href="<?=BASE_HREF?>favicon.ico" type="image/x-icon" />-->
+        <link rel="icon" type="image/png" href="<?=BASE_HREF?>favicon.png" />
         <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
-        <title></title>
+        <title>My Shop</title>
     </head>
     <body>
         <div class="maindiv">
             <h2 style="text-align: center;">..:: MyShop ::..</h2>
             <div>
                 <?php
+                    //var_dump($_SERVER);
                     //var_dump($params);
                     //print Templates\DefaultTemplate::class;
                     //echo '<br>';

@@ -19,27 +19,21 @@ class DefaultController extends \Core\Framework\MVC\Controller {
     }
     
     public function index($params) {
-        //var_dump($params);
-        echo 'This is index method!!!<br>';
-        $this->model->addData($params);
-        //$params += $this->model->getData();
-        //var_dump($this->model->getData());
-        //var_dump($params); - parametry z URL
-        $this->view->show($this->model->getData()); 
+        $this->model->addParams($params);
+        $this->model->setSettingsMVC($this->model, $this->view, $this);
+        $this->view->show($this->model->getData());
     }
     
     public function another($params) {
-        //var_dump($params);
-        echo 'This is another method!!!<br>';
-        $this->model->addData($params);
-        //$params += $this->model->getData();
-        //var_dump($this->model->getData());
-        //var_dump($params); - parametry z URL
-        $this->view->show($this->model->getData()); 
+        $this->model->addParams($params);
+        $this->model->setSettingsMVC($this->model, $this->view, $this);
+        $this->view->show($this->model->getData());
     }
     
-    public function itemslist() {
-        echo 'This is itemslist method<br>';
+    public function itemslist($params) {
+        $this->model->addParams($params);
+        $this->model->setSettingsMVC($this->model, $this->view, $this);
+        $this->view->show($this->model->getData());
     }
     
     public function __toString() {

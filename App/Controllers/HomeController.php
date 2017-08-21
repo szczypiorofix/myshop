@@ -9,7 +9,16 @@ namespace Controllers;
  */
 class HomeController extends \Core\Framework\MVC\Controller {
     
+    /**
+     * Obiekt modelu.
+     * @var object.
+     */
     private $model;
+    
+    /**
+     * Obiekt widoku.
+     * @var object.
+     */
     private $view;
     
     public function __construct(\Core\Framework\MVC\Model $model, \Core\Framework\MVC\View $view) {
@@ -19,16 +28,15 @@ class HomeController extends \Core\Framework\MVC\Controller {
     }
     
     public function index($params) {
-        //var_dump($params);
-        echo 'This is index method!<br>';
-        //var_dump($this->model->getData());
-        $this->model->addData($params);
+        $this->model->addParams($params);
+        $this->model->setSettingsMVC($this->model, $this->view, $this);
         $this->view->show($this->model->getData());
-        //var_dump($params);
     }
     
-    public function itemslist() {
-        echo 'This is itemslist method<br>';
+    public function itemslist($params) {
+        $this->model->addParams($params);
+        $this->model->setSettingsMVC($this->model, $this->view, $this);
+        $this->view->show($this->model->getData());
     }
     
     public function __toString() {

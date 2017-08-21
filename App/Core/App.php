@@ -5,10 +5,6 @@ use Routes\Router;
 use Core\FrameworkException;
 use Core\Framework\MVC\Controller;
 
-//use Models;
-//use Controllers;
-//use Views;
-
 
 /**
  * Klasa App - główna klasa aplikacji.
@@ -17,9 +13,8 @@ use Core\Framework\MVC\Controller;
 class App {
     
     private static $useDefaultController = true;
-    private static $useDefaultMethod = true;
-    private static $class = Controller::DEFAULT_CONTROLLER;
     private static $method = Controller::DEFAULT_CONTROLLER_METHOD;
+    private static $class = Controller::DEFAULT_CONTROLLER;
     private static $model = null;
     private static $view = null;
     private static $controller = null;
@@ -32,9 +27,8 @@ class App {
      * App::init(); - funkcja inicjująca wywołaie aplikacji.
      */
     public static function init() {
-        
-//        var_dump($_SERVER);
-//        
+
+  
 //        $mymodel = new \Models\DefaultModel();
 //        Framework\Helpers\Registry::set($mymodel);
 //        
@@ -54,20 +48,20 @@ class App {
 //        $data->job();            
         
         try {
-            Router::addRoute('', 'HomeController', 'index');
-            Router::addRoute('default', 'DefaultController', 'default');
-            Router::addRoute('home', 'HomeController', 'home');
+            Router::addRoute('', 'DefaultController', 'index');
+            Router::addRoute('default', 'DefaultController', 'index');
+            Router::addRoute('home', 'HomeController', 'index');
         } catch (FrameworkException $ex) {
             echo $ex->showError();
         }
 
         $url = self::parseUrl();
         if (!isset($url[0])) {
-            self::$controller = Controller::DEFAULT_CONTROLLER;
+            self::$class = Controller::DEFAULT_CONTROLLER;
         }
         else {
             if (Router::routeExists($url[0])) {
-                self::$controller = $url[0];
+                self::$class = $url[0];
                 unset($url[0]);
                 self::$useDefaultController = false;
             }
@@ -77,40 +71,42 @@ class App {
         }
         
         // Tworzenie modelu
-        self::$model = "\Models\\".ucwords(self::$controller)."Model";
+        self::$model = "\Models\\".ucwords(self::$class)."Model";
         self::$model = new self::$model();
         
         // Tworzenie widoku
-        self::$view = "\Views\\".ucwords(self::$controller)."View";
+        self::$view = "\Views\\".ucwords(self::$class)."View";
         self::$view = new self::$view();
         
         // Tworzenie kontrolera
-        self::$controller = "\Controllers\\".ucwords(self::$controller)."Controller";
+        self::$controller = "\Controllers\\".ucwords(self::$class)."Controller";
         self::$controller = new self::$controller(self::$model, self::$view);
 
         if (self::$useDefaultController) {
-            if (isset($url[1]) && method_exists(self::$controller, self::$method)) {
-                self::$method = $url[1]; 
-                unset($url[1]);  
+            if (isset($url[0]) && method_exists(self::$controller, $url[0])) {
+                self::$method = $url[0]; 
+                unset($url[0]);  
             }
             else {
                 self::$method = Controller::DEFAULT_CONTROLLER_METHOD;
             }            
         }
         else {
-            if (isset($url[0]) && method_exists(self::$controller, self::$method)) {
-                self::$method = $url[0]; 
-                unset($url[0]);  
+            if (isset($url[1]) && method_exists(self::$controller, $url[1])) {
+                self::$method = $url[1];
+                unset($url[1]);
             }
             else {
                 self::$method = Controller::DEFAULT_CONTROLLER_METHOD;
             }  
         }
 
-        echo 'Controller: '.self::$controller.'<br>';
-        echo 'Method: '.self::$method.'<br>';
-        echo 'Model: '.self::$model.'<br>';
-        echo 'View: '.self::$view.'<br>';
+//        echo 'Controller: '.self::$controller.'<br>';
+//        echo 'Method: '.self::$method.'<br>';
+//        echo 'Model: '.self::$model.'<br>';
+//        echo 'View: '.self::$view.'<br>';
+        
+        //var_dump(get_class_methods(self::$controller));
         
         $params[] = $url ? array_values($url) : [];
         //var_dump($params);

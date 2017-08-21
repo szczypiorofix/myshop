@@ -3,6 +3,9 @@
 namespace Routes;
 use \Core\FrameworkException;
 
+/**
+ * Klasa Routera aplikacji.
+ */
 class Router {
     
     static private $routes = array();

@@ -1,4 +1,3 @@
-<?php var_dump($params); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +23,7 @@
             <div>
                 <?php
                     //var_dump($_SERVER);
-                    //var_dump($params);
+                    var_dump($params);
                     //print Templates\DefaultTemplate::class;
                     //echo '<br>';
                     //var_dump(get_loaded_extensions());

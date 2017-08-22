@@ -1,5 +1,32 @@
 <?php
 
+// Require the bundled autoload file - the path may need to change
+// based on where you downloaded and unzipped the SDK
+//require '../twiliophpmaster/Twilio/autoload.php';
+//
+//// Use the REST API Client to make requests to the Twilio REST API
+//use Twilio\Rest\Client;
+//
+//// Your Account SID and Auth Token from twilio.com/console
+//$sid = ' ';
+//$token = ' ';
+//$client = new Client($sid, $token);
+//
+//// Use the client to do fun stuff like send text messages!
+//$client->messages->create(
+//    // the number you'd like to send the message to
+//    '+48724115371',
+//    array(
+//        // A Twilio phone number you purchased at twilio.com/console
+//        'from' => '+48799449735',
+//        // the body of the text message you'd like to send
+//        'body' => "To jest próbna wiadomość wysłana przez API."
+//    )
+//);
+
+
+
+
 // ####### DEFINIOWANIE ŚCIEŻEK DOSTĘPÓW ####### //
 // ### Tutaj definiowane są wszystkie ścieżki dostępów do poszczególnych składników i modułów aplikacji ### //
 
@@ -86,7 +113,12 @@ define("MVC_DIR", FRAMEWORK_DIR . "MVC" . DS);
 
 // ### Ładowanie klasy Autoloader, służącej do ładowania plików klas w momencie ich inicjowania ### //
 require_once APPCORE_DIR.'AutoLoader.php';
+\Core\AutoLoader::run();
 
+
+include_once HELPERS_DIR.'Phpqrcode/qrlib.php';
+//QRcode::png('SEE THAT MOUNTAIN? YOU CAN CLIMB IT!');
+QRcode::png('IT JUST WORKS ! - Todd Howard', 'qrcode.png');
 
 
 // ####### START APLIKACJI ####### //

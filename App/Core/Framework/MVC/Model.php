@@ -31,11 +31,11 @@ abstract class Model {
      * Metoda zwracająca całą tablicę z danymi.
      * @return array
      */
-    public function getData() {
+    final public function getData() {
         return $this->data;
     }
     
-    public function setData($data) {
+    final public function setData($data) {
         $this->data = $data;
     }
     
@@ -45,7 +45,7 @@ abstract class Model {
      * @param \Core\Framework\MVC\View $view
      * @param \Core\Framework\MVC\Controller $controller
      */
-    public function setSettingsMVC(\Core\Framework\MVC\Model $model, \Core\Framework\MVC\View $view, \Core\Framework\MVC\Controller $controller) {
+    final public function setSettingsMVC(\Core\Framework\MVC\Model $model, \Core\Framework\MVC\View $view, \Core\Framework\MVC\Controller $controller) {
         $this->data['settings']['model'] = $model->__toString();
         $this->data['settings']['view'] = $view->__toString();
         $this->data['settings']['controller'] = $controller->__toString();
@@ -54,15 +54,15 @@ abstract class Model {
      * Metoda zwracająca część tablicy $data, która odpowiada tylko za przekazywane parametry.
      * @return array
      */
-    public function getParams() {
+    final public function getParams() {
         return $this->data['params'];
     }
 
-    public function addParams($params) {
+    final public function addParams($params) {
         $this->data['params'] += $params;
     }
 
-    public function setParams($params) {
+    final public function setParams($params) {
         $this->data['params'] = $params;
     }
 
@@ -70,15 +70,15 @@ abstract class Model {
      * Metoda zwracająca część tablicy $data, która odpowiada tylko za pzekazywane dane strukturalne.
      * @return array
      */
-    public function getSettings() {
+    final public function getSettings() {
         return $this->data['settings'];
     }
 
-    public function addSettings($settings) {
+    final public function addSettings($settings) {
         $this->data['settings'] += $settings;
     }
 
-    public function setSettings($settings) {
+    final public function setSettings($settings) {
         $this->data['settings'] = $settings;
     }
 }

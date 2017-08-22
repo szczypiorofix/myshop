@@ -23,7 +23,8 @@
             <div>
                 <?php
                     //var_dump($_SERVER);
-                    var_dump($params);
+                    //var_dump($params);
+                    
                     //print Templates\DefaultTemplate::class;
                     //echo '<br>';
                     //var_dump(get_loaded_extensions());
@@ -46,7 +47,9 @@
                 ?>
             </div>
             <div style="width: 90%; margin: auto;">
-                <img src="images/landscape1.jpg" alt=""/>
+                <h3 style="text-align: center">CHECK THIS OUT !!!</h3>
+<!--                <img src="images/landscape1.jpg" alt=""/>-->
+                <img style="position:absolute;left:50%;margin-left:-50px; margin-top: 20px;" src="qrcode.png" alt="QR Code"/>
             </div>
         </div>
         <script src="js/<?=$params['settings']['js']?>"></script>

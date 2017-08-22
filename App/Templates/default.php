@@ -13,45 +13,25 @@
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
 <!--        <link rel="icon" type="image/x-icon" href="<?=BASE_HREF?>favicon.ico" />-->
 <!--        <link rel="shortcut icon" href="<?=BASE_HREF?>favicon.ico" type="image/x-icon" />-->
-        <link rel="icon" type="image/png" href="<?=BASE_HREF?>favicon.png" />
+        <link rel="icon" type="image/png" href="favicon.png" />
         <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
-        <title>My Shop</title>
+        <script src="js/<?=$params['settings']['head_js']?>"></script>
+        <title><?=$params['settings']['pageTitle']?></title>
     </head>
     <body>
         <div class="maindiv">
             <h2 style="text-align: center;">..:: MyShop ::..</h2>
             <div>
                 <?php
-                    //var_dump($_SERVER);
                     //var_dump($params);
-                    
-                    //print Templates\DefaultTemplate::class;
-                    //echo '<br>';
-                    //var_dump(get_loaded_extensions());
-                    //echo '<br>';
-                    //ini_set('soap.wsdl_cache_enabled', 0);
-            
-                    //$client = new SoapClient('https://market-test.ergohestia.pl/soa/pkt/soa.pkt.php?wsdl');
-                    //print_r($client);
-//                    //$variables = $client->__getLastResponse();
-//                    $functions = $client->__getFunctions();
-//                    var_dump($functions);
-//
-//                    //$functions[6]();
-//
-//                    header('Content-Type: text/plain');
-//                    $rpc = "https://market-test.ergohestia.pl/soa/pkt/soa.pkt.php?wsdl";
-//                    $clientRPC = new xmlrpc_client($rpc, true);
-//                    $resp = $clientRPC->call('getPolisa(string $pxml)', array());
-//                    print_r($resp);
                 ?>
             </div>
             <div style="width: 90%; margin: auto;">
-                <h3 style="text-align: center">CHECK THIS OUT !!!</h3>
+                <h3 style="text-align: center">Scan this QR Code to see what's going on !</h3>
 <!--                <img src="images/landscape1.jpg" alt=""/>-->
                 <img style="position:absolute;left:50%;margin-left:-50px; margin-top: 20px;" src="qrcode.png" alt="QR Code"/>
             </div>
         </div>
-        <script src="js/<?=$params['settings']['js']?>"></script>
+        <script src="js/<?=$params['settings']['body_js']?>"></script>
     </body>
 </html>

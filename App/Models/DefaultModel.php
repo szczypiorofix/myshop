@@ -1,23 +1,43 @@
 <?php
 
 namespace Models;
+use Core\Framework\Database\DBConnection, Core\FrameworkException;
 
 class DefaultModel extends \Core\Framework\MVC\Model {
     
+    private $db = null;
+    private $query = null;
+    private $results = null;
+    
     public function __construct() {
         $this->setData(
-                array(
-                    'settings' => array(
+                [
+                    'settings' => [
                         'pageTitle' => 'MyShop',
                         'css' => 'mainstyle.css',
-                        'js' => 'mainscript.js',
+                        'head_js' => 'mainheadscript.js',
+                        'body_js' => 'mainbodyscript.js',
                         'model' => 'DefaultModel',
                         'view' => 'DefaultView',
                         'controller' => 'DefaultController'
-                    ),
-                    'params' => array()
-                )
+                    ],
+                    'params' => []
+                ]
         );
+        
+        try {
+            $this->db = DBConnection::get()->getDB();
+            $this->query = $this->db->prepare("SELECT * FROM `config`;");
+            $this->query->execute();
+            $this->results = $this->query->fetchAll();
+        } catch (\PDOException $exc) {
+                try {
+                    throw new FrameworkException("Błąd PDO:<br>".$exc);
+                } catch (FrameworkException $ex) {
+                    echo $ex->showError();
+                }
+        }
+        var_dump($this->results);
     }
     
     public function __toString() {

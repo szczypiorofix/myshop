@@ -29,6 +29,13 @@ final class Config {
             if (isset(self::getInstance()->config_data[$key])) {
                 return self::getInstance()->config_data[$key];
             }
+            else {
+                try {
+                    throw new FrameworkException("Brak takiego klucza: ".$key);
+                } catch (FrameworkException $ex) {
+                    echo $ex->showError();
+                }
+            }
         }
         else {
             try {

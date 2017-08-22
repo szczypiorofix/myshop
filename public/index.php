@@ -26,7 +26,6 @@
 
 
 
-
 // ####### DEFINIOWANIE ŚCIEŻEK DOSTĘPÓW ####### //
 // ### Tutaj definiowane są wszystkie ścieżki dostępów do poszczególnych składników i modułów aplikacji ### //
 
@@ -118,8 +117,7 @@ require_once APPCORE_DIR.'AutoLoader.php';
 
 include_once HELPERS_DIR.'Phpqrcode/qrlib.php';
 //QRcode::png('SEE THAT MOUNTAIN? YOU CAN CLIMB IT!');
-QRcode::png('IT JUST WORKS ! - Todd Howard', 'qrcode.png');
-
+QRcode::png('IT JUST WORKS ! - Todd Howard', 'qrcode.png', 4, 4);
 
 // ####### START APLIKACJI ####### //
 

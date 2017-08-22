@@ -14,6 +14,12 @@ class DefaultView extends \Core\Framework\MVC\View {
      */
     public function show($params) {
         $this->params = $params ?? array();
+        $output = '';
+        foreach($this->params['results'] as $product) {
+            $output .= '<p>'.$product['name'].'</p>'
+                    . '<img style="max-width: 160px;" src="images/products/'.$product['image'].'"/><br>'
+                    . '';
+        }
         include_once parent::DEFAULT_TEMPLATE_FILENAME;
     }
     

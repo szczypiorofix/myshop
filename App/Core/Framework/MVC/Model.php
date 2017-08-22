@@ -15,17 +15,18 @@ abstract class Model {
      * 'settings' - dane strukturalne
      * 'params' - parametry metody kontrolera.
      */
-    private $data = array(
-        'settings' => array(
+    private $data = [
+        'settings' => [
             'pageTitle' => 'MyShop',
             'css' => 'mainstyle.css',
             'js' => 'mainscript.js',
             'model' => 'DefaultModel',
             'view' => 'DefaultView',
             'controller' => 'DefaultController'
-        ),
-        'params' => array()
-    );
+        ],
+        'params' => [],
+        'results' => ['test' => 'test1']
+    ];
     
     /**
      * Metoda zwracająca całą tablicę z danymi.
@@ -50,6 +51,19 @@ abstract class Model {
         $this->data['settings']['view'] = $view->__toString();
         $this->data['settings']['controller'] = $controller->__toString();
     }
+    
+    final public function getResults() {
+        return $this->data['results'];
+    }
+
+    final public function addResults($results) {
+        $this->data['results'] += $results;
+    }
+
+    final public function setResults($results) {
+        $this->data['results'] = $results;
+    }
+    
     /**
      * Metoda zwracająca część tablicy $data, która odpowiada tylko za przekazywane parametry.
      * @return array

@@ -23,7 +23,7 @@
             <h2 style="text-align: center;">..:: MyShop ::..</h2>
             <div>
                 <?php
-                    //var_dump($params);
+                     echo $output;
                 ?>
             </div>
             <div style="width: 90%; margin: auto;">

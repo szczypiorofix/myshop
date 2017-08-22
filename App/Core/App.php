@@ -100,16 +100,8 @@ class App {
                 self::$method = Controller::DEFAULT_CONTROLLER_METHOD;
             }  
         }
-
-//        echo 'Controller: '.self::$controller.'<br>';
-//        echo 'Method: '.self::$method.'<br>';
-//        echo 'Model: '.self::$model.'<br>';
-//        echo 'View: '.self::$view.'<br>';
-        
-        //var_dump(get_class_methods(self::$controller));
         
         $params[] = $url ? array_values($url) : [];
-        //var_dump($params);
         call_user_func_array([self::$controller, self::$method], $params);
     }
     

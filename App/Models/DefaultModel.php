@@ -21,23 +21,26 @@ class DefaultModel extends \Core\Framework\MVC\Model {
                         'view' => 'DefaultView',
                         'controller' => 'DefaultController'
                     ],
-                    'params' => []
+                    'params' => [],
+                    'results' => []
                 ]
         );
         
         try {
             $this->db = DBConnection::get()->getDB();
-            $this->query = $this->db->prepare("SELECT * FROM `config`;");
+            $this->query = $this->db->prepare("SELECT * FROM `products`;");
             $this->query->execute();
             $this->results = $this->query->fetchAll();
-        } catch (\PDOException $exc) {
-                try {
-                    throw new FrameworkException("Błąd PDO:<br>".$exc);
-                } catch (FrameworkException $ex) {
-                    echo $ex->showError();
-                }
         }
-        var_dump($this->results);
+        catch (\PDOException $exc) {
+            try {
+                throw new FrameworkException("Błąd PDO:<br>".$exc);
+            } catch (FrameworkException $ex) {
+                echo $ex->showError();
+            }
+        }
+        //var_dump($this->results);
+        $this->addResults($this->results);
     }
     
     public function __toString() {

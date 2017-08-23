@@ -18,7 +18,7 @@ abstract class Model {
     private $data = [
         'settings' => [
             'pageTitle' => 'MyShop',
-            'css' => 'mainstyle.css',
+            'css' => 'style.css',
             'js' => 'mainscript.js',
             'model' => 'DefaultModel',
             'view' => 'DefaultView',
@@ -39,6 +39,8 @@ abstract class Model {
     final public function setData($data) {
         $this->data = $data;
     }
+    
+    abstract public function manageParams($params);
     
     /**
      * Metoda przypisująca dane modelu, widoku i kontrolera do odpowiadającym im wartościom w tablicy $data.

@@ -1,14 +1,15 @@
 <?php
 
+
 namespace Controllers;
 
 /**
- * Kontroler Default - domyślny
+ * Description of ProductController
  *
- * @author Piotr Wróblewski <poczta@wroblewskipiotr.pl>
+ * @author Piotrek
  */
-class DefaultController extends \Core\Framework\MVC\Controller {
-    
+class ProductController extends \Core\Framework\MVC\Controller {
+   
     private $model;
     private $view;
     
@@ -20,8 +21,8 @@ class DefaultController extends \Core\Framework\MVC\Controller {
     
     public function index($params) {
         $this->model->addParams($params);
-        //$this->model->setSettingsMVC($this->model, $this->view, $this);
         $this->model->manageParams($params);
+        //$this->model->setSettingsMVC($this->model, $this->view, $this);
         $this->view->show($this->model->getData());
     }
     
@@ -38,6 +39,7 @@ class DefaultController extends \Core\Framework\MVC\Controller {
     }
     
     public function __toString() {
-        return 'This is DefaultController.';
+        return 'This is ProductController.';
     }
+    
 }

@@ -4,7 +4,7 @@ namespace Views;
 /**
  * Klasa DefaultView - domyślny widok domyślnego kontrolera (DefaultController).
  */
-class DefaultView extends \Core\Framework\MVC\View {
+class ProductView extends \Core\Framework\MVC\View {
     
     
     /**
@@ -12,15 +12,15 @@ class DefaultView extends \Core\Framework\MVC\View {
      * @param array $params Parametry przekazywane do pliku template'a.
      */
     public function show($params) {
-
+        
         $output = '<div class="products-list">';
         foreach($params['results'] as $product) {
             $output .= ''
             . '<div class="product-on-list">'
-                . '<h2><a href="product/'.$product['code'].'">'.$product['name'].'</a></h2>'
+                . '<h2><a href="#">'.$product['name'].'</a></h2>'
                 . '<div class="products-list-img-price">'
                     . '<div class="products-list-image">'
-                        . '<a href="product/'.$product['code'].'"><img class="img-responsive products-list-img" src="images/products/'.$product['image'].'"/></a>'
+                        . '<a href="#"><img class="img-responsive products-list-img" src="images/products/'.$product['image'].'"/></a>'
                     . '</div>'
                     . '<div class="products-list-price-button">'
                         . '<p class="products-list-price">'.$product['price'].' PLN</p>'
@@ -38,6 +38,6 @@ class DefaultView extends \Core\Framework\MVC\View {
      * @return string Krótka nazwa klasy.
      */
     public function __toString() {
-        return 'This is DefaultView.';
+        return 'This is ProductView.';
     }
 }

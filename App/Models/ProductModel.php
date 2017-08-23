@@ -3,7 +3,7 @@
 namespace Models;
 use Core\Framework\Database\DBConnection, Core\FrameworkException;
 
-class DefaultModel extends \Core\Framework\MVC\Model {
+class ProductModel extends \Core\Framework\MVC\Model {
     
     private $db = null;
     private $query = null;
@@ -20,9 +20,9 @@ class DefaultModel extends \Core\Framework\MVC\Model {
                         'css' => 'style.css',
                         'head_js' => 'mainheadscript.js',
                         'body_js' => 'mainbodyscript.js',
-                        'model' => 'DefaultModel',
-                        'view' => 'DefaultView',
-                        'controller' => 'DefaultController'
+                        'model' => 'ProductModel',
+                        'view' => 'ProductView',
+                        'controller' => 'ProductController'
                     ],
                     'params' => $params,
                     'results' => []
@@ -31,9 +31,11 @@ class DefaultModel extends \Core\Framework\MVC\Model {
         
         try {
             $this->db = DBConnection::get()->getDB();
-            $this->query = $this->db->prepare("SELECT * FROM `shop_products`;");
+            $this->query = $this->db->prepare("SELECT * FROM `shop_products` WHERE `code` =:code;");
+            $this->query->bindParam(':code', $this->getParams()[0]);
             $this->query->execute();
             $this->results = $this->query->fetchAll();
+            //var_dump($this->results);
         }
         catch (\PDOException $exc) {
             try {
@@ -47,6 +49,6 @@ class DefaultModel extends \Core\Framework\MVC\Model {
     }
     
     public function __toString() {
-        return 'This is DefaultModel.';
+        return 'This is ProductModel.';
     }
 }

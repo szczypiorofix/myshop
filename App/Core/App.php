@@ -47,14 +47,19 @@ class App {
 //        $data = new MyNewJob();
 //        $data->job();            
         
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        
         try {
             Router::addRoute('', 'DefaultController', 'index');
             Router::addRoute('default', 'DefaultController', 'index');
             Router::addRoute('home', 'HomeController', 'index');
+            Router::addRoute('product', 'ProductController', 'ide');
         } catch (FrameworkException $ex) {
             echo $ex->showError();
         }
-
+        
         $url = self::parseUrl();
         if (!isset($url[0])) {
             self::$class = Controller::DEFAULT_CONTROLLER;
@@ -69,6 +74,7 @@ class App {
                 Router::redirect404();
             }
         }
+        
         
         // Tworzenie modelu
         self::$model = "\Models\\".ucwords(self::$class)."Model";
@@ -102,6 +108,10 @@ class App {
         }
         
         $params[] = $url ? array_values($url) : [];
+        
+        self::$model->setParams($params);
+        //var_dump(self::$model->getParams());
+        
         call_user_func_array([self::$controller, self::$method], $params);
     }
     

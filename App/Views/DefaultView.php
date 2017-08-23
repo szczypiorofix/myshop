@@ -30,6 +30,7 @@ class DefaultView extends \Core\Framework\MVC\View {
                 . '<p class="products-list-description">'.$product['description'].'</p>'
             . '</div>';
         }
+        $output .= '</div>';
         include_once parent::DEFAULT_TEMPLATE_FILENAME;
     }
     

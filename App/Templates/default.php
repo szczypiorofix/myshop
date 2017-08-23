@@ -14,27 +14,39 @@
 <!--        <link rel="icon" type="image/x-icon" href="<?=BASE_HREF?>favicon.ico" />-->
 <!--        <link rel="shortcut icon" href="<?=BASE_HREF?>favicon.ico" type="image/x-icon" />-->
         <link rel="icon" type="image/png" href="icon.png" />
-        <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
         <script src="js/<?=$params['settings']['head_js']?>"></script>
         <title><?=$params['settings']['pageTitle']?></title>
+        <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
     </head>
     <body>
+        <div class="navbar">
+            <a class="navbar-btn" href="/myshop">..:: MyShop ::..</a>
+            <input type="text" class="navbar-input" placeholder="Szukaj...">
+            <button class="navbar-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <a class="navbar-btn" href="/myshop/contact">Kontakt</a>
+        </div>
         <div class="maindiv">
-            <div class="navbar">
-                <a class="title" href="/myshop">..:: MyShop ::..</a>
-                <div class="input-group">
-                    <input class="search-input" type="text"></li>
-                    <input class="search-button" type="button" value="Szukaj"></li>
-                    <a href="#">Contact</a></li>
+            <div class="jumbotron">
+                A tutaj będzie jakiś Jumbotron lub slider, albo i jedno i drugie ;)
+            </div>
+            <div class="mainpanel">
+            <?php
+                echo $output;
+            ?>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    Tu jest miejsca na jakieś pierdółki ....
                 </div>
             </div>
-            
-            <div> 
-                <?php
-                     echo $output;
-                ?>
-            </div>
         </div>
+    
+        <div class="footer">
+            <p>Wróblewski Piotr 2017. All rights reserved.</p>
+        </div>
+        
+        
         <script src="js/<?=$params['settings']['body_js']?>"></script>
     </body>
 </html>

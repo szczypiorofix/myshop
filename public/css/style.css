@@ -39,6 +39,28 @@ a:active {
   width: 70%;
   float: left;
 }
+.shopping-cart.button {
+  padding: 15px 30px 15px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ee3333;
+  color: #eeeeee;
+  box-shadow: 2px 2px 2px #888888;
+  text-shadow: 1px 1px #555555;
+  font-size: 120%;
+  font-weight: 400;
+}
+.shopping-cart.button:hover {
+  cursor: pointer;
+  background-color: #dc1212;
+}
+.shopping-cart.button:hover:active {
+  background-color: #c41010;
+  transform: translate(0px, 2px);
+}
+.shopping-cart.price {
+  margin-left: 5px;
+}
 .sidebar {
   width: 29%;
   float: left;

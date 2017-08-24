@@ -22,11 +22,18 @@
             <a class="navbar-btn" href="/myshop">..:: MyShop ::..</a>
             <input type="text" class="navbar-input" placeholder="Szukaj...">
             <button class="navbar-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <a class="navbar-btn" href="/myshop/userpanel">User</a>
             <a class="navbar-btn" href="/myshop/contact">Kontakt</a>
         </div>
         <div class="maindiv">
             <div class="jumbotron">
-                A tutaj będzie jakiś Jumbotron lub slider, albo i jedno i drugie ;)
+                <div class="shopping-cart">
+                    <button class="shopping-cart button">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span id="shopping-cart-price-id" class="shopping-cart price">0.00</span>
+                        <span id="shopping-cart-currency-id" class="shopping-cart currency">PLN</span>
+                    </button>
+                </div>
             </div>
             <div class="mainpanel">
             <?php

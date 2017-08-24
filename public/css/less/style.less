@@ -7,6 +7,8 @@
 @buttonbuyfontcolor: #eeeeee;
 @navbarbgcolor: #444;
 @navbarlinkcolor: #eee;
+@shoppingcartbgcolor: #ee3333;
+@shoppingcartfontcolor: #eeeeee;
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -54,6 +56,36 @@ a:active {
 .mainpanel {
     width: 70%;
     float: left;
+}
+
+.shopping-cart.button{
+    padding: 15px 30px 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: @shoppingcartbgcolor;
+    color: @shoppingcartfontcolor;
+    box-shadow: 2px 2px 2px #888888;
+    text-shadow: 1px 1px #555555;
+    font-size: 120%;
+    font-weight: 400;
+}
+
+.shopping-cart.button:hover {
+    cursor: pointer;
+    background-color: darken(@shoppingcartbgcolor, 10%);
+}
+
+.shopping-cart.button:hover:active {
+    background-color: darken(@shoppingcartbgcolor, 15%);
+    transform: translate(0px, 2px);
+}
+
+.shopping-cart.price {
+    margin-left: 5px;
+}
+
+.shopping-cart.currency {
+    
 }
 
 .sidebar {

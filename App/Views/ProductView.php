@@ -24,7 +24,7 @@ class ProductView extends \Core\Framework\MVC\View {
                     . '</div>'
                     . '<div class="products-list-price-button">'
                         . '<p class="products-list-price">'.$product['price'].' PLN</p>'
-                        . '<button>Kup teraz</button>'
+                        . '<button>Dodaj do koszyka</button>'
                     . '</div>'
                 . '</div>'
                 . '<p class="products-list-description">'.$product['description'].'</p>'

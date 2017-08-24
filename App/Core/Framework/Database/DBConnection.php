@@ -47,7 +47,7 @@ class DBConnection {
     
     public static function get() {
         if (is_null(self::$instance)) {
-            self::$instance = new DBConnection();
+            self::$instance = new self();
         }
         return self::$instance;
     }

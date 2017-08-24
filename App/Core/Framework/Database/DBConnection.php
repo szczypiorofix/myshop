@@ -1,7 +1,7 @@
 <?php
 
 namespace Core\Framework\Database;
-use PDO, Core\Config;
+use PDO, Core\Config, Core\FrameworkException;
 
 /**
  * Klasa połączenia z bazą danych
@@ -12,6 +12,7 @@ class DBConnection {
     
     private static $instance = null;
     private $db = null;
+    private static $fatalError = false;
     
     private function __construct() {
         $db_host = Config::get('DB_HOST');
@@ -31,8 +32,13 @@ class DBConnection {
                     throw new FrameworkException("Wykryto błąd połączenia z bazą danych!<br>".$exc->getMessage());
                 } catch (FrameworkException $ex) {
                     echo $ex->showError();
+                    self::$fatalError = true;
                 }
         }
+    }
+    
+    public static function isError() {
+        return self::$fatalError;
     }
     
     public function getDB() {

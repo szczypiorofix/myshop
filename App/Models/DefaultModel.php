@@ -31,6 +31,10 @@ class DefaultModel extends \Core\Framework\MVC\Model {
         
         try {
             $this->db = DBConnection::get()->getDB();
+            if (DBConnection::isError()) {
+                echo 'ERROR!';
+                exit();
+            }
             $this->query = $this->db->prepare("SELECT * FROM `shop_products`;");
             $this->query->execute();
             $this->results = $this->query->fetchAll();

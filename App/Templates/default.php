@@ -11,8 +11,6 @@
         <meta property="og:title" content="Wróblewski Piotr - My Shop">
         <meta property="og:image" content="https://www.wroblewskipiotr.pl/myshop/public/logo.jpg">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
-<!--        <link rel="icon" type="image/x-icon" href="<?=BASE_HREF?>favicon.ico" />-->
-<!--        <link rel="shortcut icon" href="<?=BASE_HREF?>favicon.ico" type="image/x-icon" />-->
         <link rel="icon" type="image/png" href="icon.png" />
         <script src="js/<?=$params['settings']['head_js']?>"></script>
         <title><?=$params['settings']['pageTitle']?></title>
@@ -37,7 +35,11 @@
             </div>
             <div class="sidebar">
                 <div class="sidebar-content">
-                    Tu jest miejsca na jakieś pierdółki ....
+                    <h3>Prognoza pogody:</h3>
+                    <div id="spinner">
+                    </div>
+                    <div id="weather_forecast">
+                    </div>
                 </div>
             </div>
         </div>

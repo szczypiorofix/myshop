@@ -3,3 +3,4 @@ DB_HOST=localhost
 DB_NAME=myshop
 DB_USER=root
 DB_PASS=
+DARKSKY_KEY=873bcfccb57df6d3b191c0196449784c

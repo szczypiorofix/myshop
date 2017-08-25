@@ -10,7 +10,6 @@ class WeatherView extends \Core\Framework\MVC\View {
      * @param array $params Parametry przekazywane do pliku template'a.
      */
     public function show($params) {
-        //var_dump($params['results']);
         $output = 
          'Długość geogr.: '.$params['results']['longitude'].'<br>'
         .'Szerokość geogr.: '.$params['results']['latitude'].'<br>'

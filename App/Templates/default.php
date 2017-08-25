@@ -28,7 +28,7 @@
         <div class="maindiv">
             <div class="jumbotron">
                 <div class="shopping-cart">
-                    <button class="shopping-cart button">
+                    <button class="shopping-cart button" onclick="window.location='cart'">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span id="shopping-cart-price-id" class="shopping-cart price">0.00</span>
                         <span id="shopping-cart-currency-id" class="shopping-cart currency">PLN</span>

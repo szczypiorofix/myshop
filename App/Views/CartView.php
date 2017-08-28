@@ -21,7 +21,6 @@ class CartView extends \Core\Framework\MVC\View {
                 <a class="navbar-btn" href="/myshop/contact">Kontakt</a>');
         $page['navbar'] = $navbarComponent->getComponent();
         
-        
         $page['jumbotron'] = '';
         
         $mainPanelComponent = new Component("mainpanel");

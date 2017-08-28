@@ -16,6 +16,7 @@
             foreach($params['settings']['head_js'] as $script) {
                 echo "<script src=".BASE_HREF."/js/".$script."></script>";
             }
+            echo '<script>'.$params['settings']['head_script'].'</script>';
         ?>
         <title><?=$params['settings']['pageTitle']?></title>
         <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['settings']['css']?>">
@@ -34,6 +35,7 @@
             foreach($params['settings']['body_js'] as $script) {
                 echo "<script src=".BASE_HREF."/js/".$script."></script>";
             }
+            echo '<script>'.$params['settings']['body_script'].'</script>';
         ?>
     </body>
 </html>

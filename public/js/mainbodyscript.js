@@ -37,11 +37,22 @@ var WeatherForecastWidget = {
 var shoppingCart = {
     shoppingCartPrice: null,
     itemsList: null,
-    
+    itemsStorage: null,
+    showPanel: function() {
+        var cartlist = document.getElementById('cartlist');
+        var items = localStorage.getItem('myshop_cart');
+        if (items !== null && items !== '') {
+            i = JSON.parse(items);
+            console.log(i);
+            i.forEach(function(item, index) {
+                cartlist.innerHTML += '<p>'+item.name+', '+item.price +' PLN </p>';
+            });
+        }
+    },
     update: function() {
         this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');
         this.itemsList = localStorage.getItem('myshop_cart');
-        if (this.itemsList !== null && this.shoppingCartPrice !== null) {
+        if (this.itemsList !== '' && this.shoppingCartPrice !== null) {
             i = JSON.parse(this.itemsList);
             var price = 0;
             i.forEach(function(item, index) {
@@ -51,9 +62,12 @@ var shoppingCart = {
         }
     },
     add: function(item) {
-        this.itemsList  = localStorage.getItem('myshop_cart');
-        console.log(this.itemsList);
-        if (this.itemsList == null) {
+        this.itemsStorage = localStorage.getItem('myshop_cart');
+        
+        if (this.itemsStorage !== '' && this.itemsStorage !== null) {
+            this.itemsList = JSON.parse(this.itemsStorage);
+        }
+        else {
             this.itemsList = [];
         }
         let temp = new Object();
@@ -65,6 +79,7 @@ var shoppingCart = {
         console.log(this.itemsList);
         localStorage.setItem('myshop_cart', JSON.stringify(this.itemsList));
         this.update();
+        
     },
     clear: function() {
         localStorage.setItem('myshop_cart', []);

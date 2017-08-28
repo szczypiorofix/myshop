@@ -19,7 +19,9 @@ class DefaultModel extends \Core\Framework\MVC\Model {
                         'pageTitle' => 'MyShop',
                         'css' => 'style.css',
                         'head_js' => ['mainheadscript.js'],
+                        'head_script' => '',
                         'body_js' => ['mainbodyscript.js'],
+                        'body_script' => '',
                         'model' => 'DefaultModel',
                         'view' => 'DefaultView',
                         'controller' => 'DefaultController'

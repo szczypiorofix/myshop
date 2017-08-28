@@ -16,6 +16,10 @@
 //
 //exit();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 // ####### DEFINIOWANIE ŚCIEŻEK DOSTĘPÓW ####### //
 // ### Tutaj definiowane są wszystkie ścieżki dostępów do poszczególnych składników i modułów aplikacji ### //

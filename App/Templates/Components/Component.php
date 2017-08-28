@@ -1,12 +1,22 @@
 <?php
 
 namespace Templates\Components;
+use Templates\Components\Container;
 
-abstract class Component {
+class Component {
+        
+    private $content = null;
+    private $navbarContainer = null;
     
-    private $component = '';
-    
-    abstract public function showComponent();
-    
-    abstract public function addToComponent();
+    public function __construct($c = "") {
+        $this->navbarContainer = new Container($c);
+    }
+
+    public function getComponent() {
+        return $this->navbarContainer->getContainer();
+    }
+
+    public function addToComponent($content) {
+        $this->navbarContainer->addToContainer($content);
+    }
 }

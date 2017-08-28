@@ -12,50 +12,28 @@
         <meta property="og:image" content="https://www.wroblewskipiotr.pl/myshop/public/logo.jpg">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
         <link rel="icon" type="image/png" href="icon.png" />
-        <script src="js/<?=$params['settings']['head_js']?>"></script>
+        <?php 
+            foreach($params['settings']['head_js'] as $script) {
+                echo "<script src=".BASE_HREF."/js/".$script."></script>";
+            }
+        ?>
         <title><?=$params['settings']['pageTitle']?></title>
-        <link rel="stylesheet" type="text/css" href="css/<?=$params['settings']['css']?>">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['settings']['css']?>">
+        <link rel="stylesheet" href="<?=BASE_HREF?>/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="navbar">
-            <a class="navbar-btn" href="/myshop">..:: MyShop ::..</a>
-            <input type="text" class="navbar-input" placeholder="Szukaj...">
-            <button class="navbar-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-            <a class="navbar-btn" href="/myshop/userpanel">User</a>
-            <a class="navbar-btn" href="/myshop/contact">Kontakt</a>
-        </div>
+        <?=$page['navbar'];?>
         <div class="maindiv">
-            <div class="jumbotron">
-                <div class="shopping-cart">
-                    <button class="shopping-cart button" onclick="window.location='cart'">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span id="shopping-cart-price-id" class="shopping-cart price">0.00</span>
-                        <span id="shopping-cart-currency-id" class="shopping-cart currency">PLN</span>
-                    </button>
-                </div>
-            </div>
-            <div class="mainpanel">
-            <?php
-                echo $output;
-            ?>
-            </div>
-            <div class="sidebar">
-                <div class="sidebar-content">
-                    <h3>Prognoza pogody:</h3>
-                    <div id="spinner">
-                    </div>
-                    <div id="weather_forecast">
-                    </div>
-                </div>
-            </div>
+            <?=$page['jumbotron'];?>
+            <?=$page['mainpanel'];?>
+            <?=$page['sidebar'];?>
         </div>
-    
-        <div class="footer">
-            <p>Wróblewski Piotr 2017. All rights reserved.</p>
-        </div>
+        <?=$page['footer'];?>
         
-        
-        <script src="js/<?=$params['settings']['body_js']?>"></script>
+        <?php 
+            foreach($params['settings']['body_js'] as $script) {
+                echo "<script src=".BASE_HREF."/js/".$script."></script>";
+            }
+        ?>
     </body>
 </html>

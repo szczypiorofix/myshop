@@ -15,8 +15,8 @@ class CartModel extends \Core\Framework\MVC\Model {
                     'settings' => [
                         'pageTitle' => 'MyShop',
                         'css' => 'style.css',
-                        'head_js' => 'mainheadscript.js',
-                        'body_js' => 'mainbodyscript.js',
+                        'head_js' => ['mainheadscript.js'],
+                        'body_js' => ['mainbodyscript.js', 'localstorage.js'],
                         'model' => 'DefaultModel',
                         'view' => 'DefaultView',
                         'controller' => 'DefaultController'
@@ -26,7 +26,7 @@ class CartModel extends \Core\Framework\MVC\Model {
                 ]
         );
         
-        /// TUTAJ DODAĆ DANE...
+        //$this->results = $_COOKIE;
         
         $this->addResults($this->results);
     }

@@ -47,10 +47,6 @@ class App {
 //        $data = new MyNewJob();
 //        $data->job();            
         
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-        
         try {
             Router::addRoute('', 'DefaultController', 'index');
             Router::addRoute('default', 'DefaultController', 'index');
@@ -76,7 +72,6 @@ class App {
                 Router::redirect404();
             }
         }
-        
         
         // Tworzenie modelu
         self::$model = "\Models\\".ucwords(self::$class)."Model";
@@ -113,7 +108,6 @@ class App {
         
         self::$model->setParams($params);
         //var_dump(self::$model->getParams());
-        
         call_user_func_array([self::$controller, self::$method], $params);
     }
     

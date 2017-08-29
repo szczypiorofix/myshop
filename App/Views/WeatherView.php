@@ -27,7 +27,7 @@ class WeatherView extends \Core\Framework\MVC\View {
      * Metoda magiczna wywoływana w momencie wyświetlania nazwy klasy.
      * @return string Krótka nazwa klasy.
      */
-    public function __toString() {
+    public function __toString() { 
         return 'This is DefaultView.';
     }
 }

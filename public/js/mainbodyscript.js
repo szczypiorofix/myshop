@@ -38,16 +38,39 @@ var shoppingCart = {
     shoppingCartPrice: null,
     itemsList: null,
     itemsStorage: null,
+    cartItemsList: null,
+    cartItemsListView: '',
+    
     showPanel: function() {
+        let self = this;
         var cartlist = document.getElementById('cartlist');
         var items = localStorage.getItem('myshop_cart');
         if (items !== null && items !== '') {
-            i = JSON.parse(items);
-            console.log(i);
-            i.forEach(function(item, index) {
-                cartlist.innerHTML += '<p>'+item.name+', '+item.price +' PLN </p>';
-            });
+            this.cartItemsList = JSON.parse(items);
+            console.log(this.cartItemsList);
+//            this.cartItemsList.forEach(function(item, index) {
+//                cartlist.innerHTML += '<p>'+item.name+', '+item.price +' PLN </p>';
+//            });
         }
+        
+        Vue.component('items-list', {
+            props: ['sol'],
+            template: '<div>{{ sol.name }}<button class="remove-button" onclick="shoppingCart.removeFromCart()">X</button></div>'
+        });
+        
+        var app = new Vue({
+            el: '#cartlist',
+            data: {
+                cart_content: 'Zawartość koszyka:',
+                message: 'To jest tooltip!',
+                cartItemsList: this.cartItemsList
+            }
+        });
+        
+        
+    },
+    removeFromCart: function(v) {
+        console.log(v);
     },
     update: function() {
         this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');
@@ -83,7 +106,8 @@ var shoppingCart = {
     },
     clear: function() {
         localStorage.setItem('myshop_cart', []);
-        this.update();
+        //this.update();
+        location.reload();
     }
 };
 

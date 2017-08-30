@@ -24,7 +24,12 @@ class CartView extends \Core\Framework\MVC\View {
         $page['jumbotron'] = '';
         
         $mainPanelComponent = new Component("mainpanel");
-        $output = '<div class="cart-list" id="cartlist">';
+        $output = '<div class="cart-list" id="cartlist" v-bind:title="message"> {{ cart_content }} <br>'
+               .'<items-list
+                    v-for="item in cartItemsList"
+                    v-bind:sol="item"
+                    v-bind:key="item.id">
+                </items-list>';
                 
         $output .= '</div>';
         $output .= '<button onclick="shoppingCart.clear();">Wyczyść koszyk</button>';

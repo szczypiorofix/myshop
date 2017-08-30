@@ -38,10 +38,10 @@ class DefaultView extends \Core\Framework\MVC\View {
             $arg = "{name: '".$product['name']."', price: '".$product['price']."', code: '".$product['code']."'}";
             $output .= ''
             . '<div class="product-on-list">'
-                . '<h2><a href="'.BASE_HREF.'/product/'.$product['code'].'">'.$product['name'].'</a></h2>'
+                . '<h2><a href="'.BASE_HREF.'product/'.$product['code'].'">'.$product['name'].'</a></h2>'
                 . '<div class="products-list-img-price">'
                     . '<div class="products-list-image">'
-                        . '<a href="'.BASE_HREF.'/product/'.$product['code'].'"><img class="img-responsive products-list-img" src="'.BASE_HREF.'/images/products/'.$product['image'].'"/></a>'
+                        . '<a href="'.BASE_HREF.'product/'.$product['code'].'"><img class="img-responsive products-list-img" src="'.BASE_HREF.'/images/products/'.$product['image'].'"/></a>'
                     . '</div>'
                     . '<div class="products-list-price-button">'
                         . '<p class="products-list-price">'.$product['price'].' PLN</p>'

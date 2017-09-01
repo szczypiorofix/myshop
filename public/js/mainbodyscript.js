@@ -47,41 +47,33 @@ var shoppingCart = {
         var items = localStorage.getItem('myshop_cart');
         if (items !== null && items !== '') {
             this.cartItemsList = JSON.parse(items);
-            console.log(this.cartItemsList);
-//            this.cartItemsList.forEach(function(item, index) {
-//                cartlist.innerHTML += '<p>'+item.name+', '+item.price +' PLN </p>';
-//            });
+            TemplateEngine.init('cartlist-items');
+            TemplateEngine.addButtons(this.cartItemsList);
+            //console.log(this.cartItemsList);
+            TemplateEngine.show();
         }
-        
-        Vue.component('items-list', {
-            props: ['sol'],
-            template: '<div>{{ sol.name }}<button class="remove-button" onclick="shoppingCart.removeFromCart()">X</button></div>'
-        });
-        
-        var app = new Vue({
-            el: '#cartlist',
-            data: {
-                cart_content: 'Zawartość koszyka:',
-                message: 'To jest tooltip!',
-                cartItemsList: this.cartItemsList
-            }
-        });
-        
-        
     },
     removeFromCart: function(v) {
-        console.log(v);
+        console.log('Usunięty przedmiot: '+v);
+        // for (var i = 0; i < this.cartItemsList.length; i++) {
+        //     console.log(this.cartItemsList[i]);
+        //     if (v === this.cartItemsList[i]) {
+        //         console.log('Znaleziono przedmiot do usunięcia: '+this.cartItemsList[i]);
+        //     }
+        // }
     },
     update: function() {
         this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');
         this.itemsList = localStorage.getItem('myshop_cart');
         if (this.itemsList !== '' && this.shoppingCartPrice !== null) {
-            i = JSON.parse(this.itemsList);
-            var price = 0;
-            i.forEach(function(item, index) {
-                price += parseInt(item.price);
-            });
-            this.shoppingCartPrice.innerHTML = price;
+            let items = JSON.parse(this.itemsList);
+            let priceSum = 0;
+            if (items !== null) {
+                items.forEach(function(item, index) {
+                    priceSum += parseInt(item.price);
+                });
+            }
+            this.shoppingCartPrice.innerHTML = priceSum;
         }
     },
     add: function(item) {
@@ -98,8 +90,8 @@ var shoppingCart = {
         temp.price = item.price;
         temp.code = item.code;
         this.itemsList.push(temp);
-        console.log('Added to cart:');
-        console.log(this.itemsList);
+        //console.log('Added to cart:');
+        //console.log(this.itemsList);
         localStorage.setItem('myshop_cart', JSON.stringify(this.itemsList));
         this.update();
         

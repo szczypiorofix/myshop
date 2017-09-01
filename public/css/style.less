@@ -316,8 +316,8 @@ td {
 }
 
 .remove-button {
-    background-color: #dd2222;
-    color: #eeeeee;
+    background-color: @buttonbuybgcolor;
+    color: @buttonbuyfontcolor;
     border: none;
     border-radius: 5px;
     padding: 5px 8px 5px 8px;
@@ -327,13 +327,14 @@ td {
 }
 
 .remove-button:visited {
-    
+    background-color: @buttonbuybgcolor;
 }
 
+
 .remove-button:hover {
-    background-color: #cc1111;
+    background-color: darken(@buttonbuybgcolor, 10%);
 }
 
 .remove-button:active {
-    
+    background-color: darken(@buttonbuybgcolor, 20%);
 }

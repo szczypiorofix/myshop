@@ -273,7 +273,7 @@ td {
   padding: 10px;
 }
 .remove-button {
-  background-color: #dd2222;
+  background-color: #e30613;
   color: #eeeeee;
   border: none;
   border-radius: 5px;
@@ -282,7 +282,12 @@ td {
   cursor: pointer;
   box-shadow: 2px 2px 2px #888888;
 }
-.remove-button:hover {
-  background-color: #cc1111;
+.remove-button:visited {
+  background-color: #e30613;
 }
-/*# sourceMappingURL=style.css.map */
+.remove-button:hover {
+  background-color: #b1050f;
+}
+.remove-button:active {
+  background-color: #80030b;
+}

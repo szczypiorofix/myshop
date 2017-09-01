@@ -14,7 +14,7 @@
         <link rel="icon" type="image/png" href="icon.png" />
         <?php 
             foreach($params['settings']['head_js'] as $script) {
-                echo "<script src=".BASE_HREF."/js/".$script."></script>";
+                echo "<script src=".BASE_HREF."js/".$script."></script>";
             }
             echo '<script>'.$params['settings']['head_script'].'</script>';
         ?>
@@ -33,7 +33,7 @@
         
         <?php 
             foreach($params['settings']['body_js'] as $script) {
-                echo "<script src=".BASE_HREF."/js/".$script."></script>";
+                echo "<script src=".BASE_HREF."js/".$script."></script>";
             }
             echo '<script>'.$params['settings']['body_script'].'</script>';
         ?>

@@ -24,7 +24,7 @@ class CartView extends \Core\Framework\MVC\View {
         $page['jumbotron'] = '';
         
         $mainPanelComponent = new Component("mainpanel");
-        $output = '<div class="cart-list" id="cartlist">Zawartość koszyka:<br>'
+        $output = '<div class="cart-list" id="cartlist"><h3>Zawartość koszyka:</h3>'
                .'<div style="margin-top: 20px;" id="cartlist-items">
                 </div>';
                 

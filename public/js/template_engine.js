@@ -7,7 +7,7 @@ var TemplateEngine = {
     },
     addButtons: function(data) {
         for (var i = 0; i < data.length; i++) {
-            this._content += '<div>'+data[i].name+'<button class="remove-button" onclick="shoppingCart.removeFromCart(\''+data[i].code+'\')">X</button></div>';
+            this._content += '<div><a style="color: #111111" href="product/'+data[i].code+'">'+data[i].name+" <span>"+data[i].price+' PLN </span></a><button class="remove-button" onclick="shoppingCart.removeFromCart(\''+data[i].code+'\')">X</button></div>';
         }
         
     },

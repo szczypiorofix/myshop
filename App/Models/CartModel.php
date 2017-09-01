@@ -17,7 +17,7 @@ class CartModel extends \Core\Framework\MVC\Model {
                         'css' => 'style.css',
                         'head_js' => ['mainheadscript.js'],
                         'head_script' => '',
-                        'body_js' => ['uniqueidgenerator.js', 'template_engine.js', 'mainbodyscript.js'],
+                        'body_js' => ['template_engine.js', 'mainbodyscript.js'],
                         'body_script' => 'shoppingCart.showPanel();',
                         'model' => 'DefaultModel',
                         'view' => 'DefaultView',

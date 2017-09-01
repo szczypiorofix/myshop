@@ -1,8 +1,11 @@
 <?php
 
-
 namespace Views;
 
+/**
+* Klasa widoku wyświetlająca widget z warunkami pogodowymi w regionie użytkownika.
+* @author Piotr Wróblewski <poczta@wroblewskipiotr.pl>
+*/
 class WeatherView extends \Core\Framework\MVC\View {
     
     /**

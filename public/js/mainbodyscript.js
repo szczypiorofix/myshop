@@ -49,18 +49,21 @@ var shoppingCart = {
             this.cartItemsList = JSON.parse(items);
             TemplateEngine.init('cartlist-items');
             TemplateEngine.addButtons(this.cartItemsList);
-            //console.log(this.cartItemsList);
             TemplateEngine.show();
         }
     },
     removeFromCart: function(v) {
-        console.log('Usunięty przedmiot: '+v);
-        // for (var i = 0; i < this.cartItemsList.length; i++) {
-        //     console.log(this.cartItemsList[i]);
-        //     if (v === this.cartItemsList[i]) {
-        //         console.log('Znaleziono przedmiot do usunięcia: '+this.cartItemsList[i]);
-        //     }
-        // }
+        //console.log('Usunięty przedmiot: '+v);
+        let itemsInStorage = JSON.parse(localStorage.getItem('myshop_cart'));
+        let tempStorage = [];
+        for (var i = 0; i < itemsInStorage.length; i++) {
+            if (v !== itemsInStorage[i].code) {
+                tempStorage.push(itemsInStorage[i]);
+            }
+        }
+        localStorage.setItem('myshop_cart', JSON.stringify(tempStorage));
+        console.log(localStorage.getItem('myshop_cart'));
+        location.reload();
     },
     update: function() {
         this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');

@@ -10,7 +10,7 @@
 @shoppingcartbgcolor: #ee3333;
 @shoppingcartfontcolor: #eeeeee;
 @productlistbackground: #4B535B;
-@productlisttextcolor: #E6E3EE;
+@productlisttextcolor: #333333;
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -56,7 +56,7 @@ a:active {
 }
 
 .mainpanel {
-    width: 70%;
+    width: 80%;
     float: left;
 }
 
@@ -87,7 +87,7 @@ a:active {
 }
 
 .sidebar {
-    width: 29%;
+    width: 19%;
     float: left;
     border: 1px solid #eee;
     border-radius: 3px;
@@ -96,46 +96,6 @@ a:active {
 
 .sidebar-content {
     padding: 10px;
-}
-
-#spinner {
-    display: block;
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
-    animation: spin 1s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-#weather_forecast {
-    display: none;
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
-}
-
-@-webkit-keyframes animatebottom {
-  from { bottom:-50px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-50px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
 }
 
 .img-responsive {
@@ -267,8 +227,8 @@ a:active {
     padding: 2px;
     overflow: hidden;
     font-size: 14px;
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
+    line-height: 1.15;
+    margin: 0;
 }
 
 .navbar-input:focus {
@@ -314,8 +274,9 @@ td {
 }
 
 .cart-table {
-    color: #eee;
-    background-color: #1E0B30;
+    color: #111;
+    background-color: darken(@backgroundcolor, 10%);
+    border: 1px solid darken(@backgroundcolor, 15%);
     padding: 1px;
     width: 95%;
     margin: auto;
@@ -324,21 +285,23 @@ td {
 }
 
 .cart-table th {
-    text-align: left;
+    border: 1px solid darken(@backgroundcolor, 15%);
+    
     font-size: 120%;
-    background-color: #245959;
+    background-color: darken(@backgroundcolor, 10%);
     padding: 15px;
 }
 
 .cart-table td {
-    background-color: @productlistbackground;
+    border: 1px solid darken(@backgroundcolor, 15%);
+    background-color:  darken(@backgroundcolor, 5%);
     padding: 15px 1px 15px 1px;
     text-align: center;
 }
 
 .cart-list {
-    background-color: @productlistbackground;
-    color: #eeeeee;
+    margin-top: 20px;
+    border: 1px solid #eee;
     padding: 30px 10px 10px 10px;
     margin-bottom: 10px;
     border-radius: 3px;
@@ -347,6 +310,7 @@ td {
 
 .product-on-list-text {
     color: @productlisttextcolor;
+    font-weight: bold;
 }
 
 .product-on-list-text:visited {

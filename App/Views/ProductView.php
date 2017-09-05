@@ -36,6 +36,7 @@ class ProductView extends \Core\Framework\MVC\View {
         $mainPanelComponent = new Component("mainpanel");
         $output = '<div class="products-list">';
         foreach($params['results'] as $product) {
+            $arg = "{name: '".$product['name']."', price: '".$product['price']."', code: '".$product['code']."'}";
             $output .= ''
             . '<div class="product-on-list">'
                 . '<h2><a href="#">'.$product['name'].'</a></h2>'
@@ -45,7 +46,7 @@ class ProductView extends \Core\Framework\MVC\View {
                     . '</div>'
                     . '<div class="products-list-price-button">'
                         . '<p class="products-list-price">'.$product['price'].' PLN</p>'
-                        . '<button>Dodaj do koszyka</button>'
+                        . '<button onclick="shoppingCart.add('.$arg.')">Dodaj do koszyka</button>'
                     . '</div>'
                 . '</div>'
                 . '<p class="products-list-description">'.$product['description'].'</p>'
@@ -57,11 +58,7 @@ class ProductView extends \Core\Framework\MVC\View {
         
         $sideBarComponent = new Component("sidebar");
         $sideBarComponent->addToComponent('<div class="sidebar-content">
-                    <h3>Prognoza pogody:</h3>
-                    <div id="spinner">
-                    </div>
-                    <div id="weather_forecast">
-                    </div>
+            Custom elements in product view;
                 </div>');
         $page['sidebar'] = $sideBarComponent->getComponent();
         

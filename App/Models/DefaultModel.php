@@ -48,7 +48,6 @@ class DefaultModel extends \Core\Framework\MVC\Model {
                 echo $ex->showError();
             }
         }
-        //var_dump($this->results);
         $this->addResults($this->results);
     }
     

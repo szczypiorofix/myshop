@@ -52,7 +52,6 @@ class App {
             Router::addRoute('default', 'DefaultController', 'index');
             Router::addRoute('home', 'HomeController', 'index');
             Router::addRoute('product', 'ProductController', 'index');
-            Router::addRoute('weather', 'WeatherController', 'index');
             Router::addRoute('cart', 'CartController', 'index');
         } catch (FrameworkException $ex) {
             echo $ex->showError();
@@ -107,7 +106,6 @@ class App {
         $params[] = $url ? array_values($url) : [];
         
         self::$model->setParams($params);
-        //var_dump(self::$model->getParams());
         call_user_func_array([self::$controller, self::$method], $params);
     }
     
@@ -136,7 +134,6 @@ class App {
     private static function parseUrl()
     {
         if (filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING) !== NULL) {
-           //return $url = explode('/', filter_var(rtrim(filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING),'/'), FILTER_SANITIZE_URL));
            return $url = explode('/', rtrim(filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING),'/'));
         }
     }

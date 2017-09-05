@@ -57,11 +57,7 @@ class DefaultView extends \Core\Framework\MVC\View {
         
         $sideBarComponent = new Component("sidebar");
         $sideBarComponent->addToComponent('<div class="sidebar-content">
-                    <h3>Prognoza pogody:</h3>
-                    <div id="spinner">
-                    </div>
-                    <div id="weather_forecast">
-                    </div>
+                Custom elements....
                 </div>');
         $page['sidebar'] = $sideBarComponent->getComponent();
         

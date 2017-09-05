@@ -36,7 +36,7 @@ a:active {
   margin: 0 auto;
 }
 .mainpanel {
-  width: 70%;
+  width: 80%;
   float: left;
 }
 .shopping-cart.button {
@@ -62,7 +62,7 @@ a:active {
   margin-left: 5px;
 }
 .sidebar {
-  width: 29%;
+  width: 19%;
   float: left;
   border: 1px solid #eee;
   border-radius: 3px;
@@ -70,60 +70,6 @@ a:active {
 }
 .sidebar-content {
   padding: 10px;
-}
-#spinner {
-  display: block;
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  animation: spin 1s linear infinite;
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-#weather_forecast {
-  display: none;
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s;
-}
-@-webkit-keyframes animatebottom {
-  from {
-    bottom: -50px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0px;
-    opacity: 1;
-  }
-}
-@keyframes animatebottom {
-  from {
-    bottom: -50px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0;
-    opacity: 1;
-  }
 }
 .img-responsive {
   max-width: 100%;
@@ -235,9 +181,7 @@ a:active {
   overflow: hidden;
   font-size: 14px;
   line-height: 1.15;
-  /* 1 */
   margin: 0;
-  /* 2 */
 }
 .navbar-input:focus {
   border: 3px solid lightblue;
@@ -276,8 +220,9 @@ td {
   padding: 10px;
 }
 .cart-table {
-  color: #eee;
-  background-color: #1E0B30;
+  color: #111;
+  background-color: #e1e1e1;
+  border: 1px solid #d4d4d4;
   padding: 1px;
   width: 95%;
   margin: auto;
@@ -285,35 +230,37 @@ td {
   border-radius: 3px;
 }
 .cart-table th {
-  text-align: left;
+  border: 1px solid #d4d4d4;
   font-size: 120%;
-  background-color: #245959;
+  background-color: #e1e1e1;
   padding: 15px;
 }
 .cart-table td {
-  background-color: #4B535B;
+  border: 1px solid #d4d4d4;
+  background-color: #ededed;
   padding: 15px 1px 15px 1px;
   text-align: center;
 }
 .cart-list {
-  background-color: #4B535B;
-  color: #eeeeee;
+  margin-top: 20px;
+  border: 1px solid #eee;
   padding: 30px 10px 10px 10px;
   margin-bottom: 10px;
   border-radius: 3px;
   width: 100%;
 }
 .product-on-list-text {
-  color: #E6E3EE;
+  color: #333333;
+  font-weight: bold;
 }
 .product-on-list-text:visited {
-  color: #cac3db;
+  color: #1a1a1a;
 }
 .product-on-list-text:hover {
-  color: #ada4c7;
+  color: #000000;
 }
 .product-on-list-text:active {
-  color: #9184b4;
+  color: #000000;
 }
 .remove-button {
   background-color: #e30613;

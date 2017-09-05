@@ -1,6 +1,6 @@
-# myshop
-This is just a MVC shop application.
+# MyShop
+This is my first shop
 
 ### MyShop
 
-For now, I'm just trying to build MVC application, with models, views and controllers, and templates of course.
+Under development ...

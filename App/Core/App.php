@@ -134,7 +134,7 @@ class App {
     private static function parseUrl()
     {
         if (filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING) !== NULL) {
-           return $url = explode('/', rtrim(filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING),'/'));
+           return explode('/', rtrim(filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING),'/'));
         }
     }
 }

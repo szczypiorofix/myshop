@@ -40,20 +40,38 @@ var shoppingCart = {
     itemsStorage: null,
     cartItemsList: null,
     cartItemsListView: '',
-    
+    cartSum: 0,  
+
+    setAmount: function(code, operation) {
+        for (var i = 0; i < this.cartItemsList.length; i++) {
+            if (code === this.cartItemsList[i].code) {
+                if (operation === 'plus') {
+                    this.cartItemsList[i].amount ++;
+                }
+                if (operation === 'minus' && this.cartItemsList[i].amount > 1) {
+                    this.cartItemsList[i].amount --;
+                }
+            }
+        }
+        localStorage.setItem('myshop_cart', JSON.stringify(this.cartItemsList));
+        this.showPanel();
+    },
     showPanel: function() {
-        let self = this;
-        var cartlist = document.getElementById('cartlist');
         var items = localStorage.getItem('myshop_cart');
         if (items !== null && items !== '') {
+            this.cartSum = 0;
             this.cartItemsList = JSON.parse(items);
+            for (var i = 0; i < this.cartItemsList.length; i++) {
+                this.cartSum += this.cartItemsList[i].price * this.cartItemsList[i].amount;
+            }
+            //console.log(this.cartItemsList);
             TemplateEngine.init('cartlist-items');
             TemplateEngine.addButtons(this.cartItemsList);
             TemplateEngine.show();
+            document.getElementById('cart-sum-value').innerHTML = this.cartSum +' PLN';
         }
     },
     removeFromCart: function(v) {
-        //console.log('Usunięty przedmiot: '+v);
         let itemsInStorage = JSON.parse(localStorage.getItem('myshop_cart'));
         let tempStorage = [];
         for (var i = 0; i < itemsInStorage.length; i++) {
@@ -62,8 +80,7 @@ var shoppingCart = {
             }
         }
         localStorage.setItem('myshop_cart', JSON.stringify(tempStorage));
-        console.log(localStorage.getItem('myshop_cart'));
-        location.reload();
+        this.showPanel();
     },
     update: function() {
         this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');
@@ -73,7 +90,7 @@ var shoppingCart = {
             let priceSum = 0;
             if (items !== null) {
                 items.forEach(function(item, index) {
-                    priceSum += parseInt(item.price);
+                    priceSum += parseInt(item.price * item.amount);
                 });
             }
             this.shoppingCartPrice.innerHTML = priceSum;
@@ -92,8 +109,16 @@ var shoppingCart = {
         temp.name = item.name;
         temp.price = item.price;
         temp.code = item.code;
-        this.itemsList.push(temp);
-        //console.log('Added to cart:');
+        temp.amount = 1
+        let addAnother = false;
+        for (var i = 0; i < this.itemsList.length; i++) {
+            if (this.itemsList[i].code === item.code) {
+                temp.amount = this.itemsList[i].amount + 1;
+                this.itemsList[i] = temp;
+                addAnother = true;
+            }
+        }
+        if (!addAnother) this.itemsList.push(temp);
         //console.log(this.itemsList);
         localStorage.setItem('myshop_cart', JSON.stringify(this.itemsList));
         this.update();
@@ -101,7 +126,6 @@ var shoppingCart = {
     },
     clear: function() {
         localStorage.setItem('myshop_cart', []);
-        //this.update();
         location.reload();
     }
 };

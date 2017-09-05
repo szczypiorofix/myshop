@@ -9,6 +9,8 @@
 @navbarlinkcolor: #eee;
 @shoppingcartbgcolor: #ee3333;
 @shoppingcartfontcolor: #eeeeee;
+@productlistbackground: #4B535B;
+@productlisttextcolor: #E6E3EE;
 
 html, body {
     font-family: 'Roboto', sans-serif;
@@ -259,9 +261,14 @@ a:active {
 
 .navbar-input {
     height: 20px;
+    min-width: 100px;
     border: 3px solid gray;
     border-radius: 4px;
     padding: 2px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
 }
 
 .navbar-input:focus {
@@ -306,15 +313,58 @@ td {
     padding: 10px;
 }
 
+.cart-table {
+    color: #eee;
+    background-color: #1E0B30;
+    padding: 1px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.cart-table th {
+    text-align: left;
+    font-size: 120%;
+    background-color: #245959;
+    padding: 15px;
+}
+
+.cart-table td {
+    background-color: @productlistbackground;
+    padding: 15px 1px 15px 1px;
+    text-align: center;
+}
+
 .cart-list {
-    background-color: #838188;
+    background-color: @productlistbackground;
     color: #eeeeee;
-    padding: 10px;   
+    padding: 30px 10px 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.product-on-list-text {
+    color: @productlisttextcolor;
+}
+
+.product-on-list-text:visited {
+    color: darken(@productlisttextcolor, 10%);
+}
+
+.product-on-list-text:hover {
+    color: darken(@productlisttextcolor, 20%);
+}
+
+.product-on-list-text:active {
+    color: darken(@productlisttextcolor, 30%);
 }
 
 .remove-button {
     background-color: @buttonbuybgcolor;
     color: @buttonbuyfontcolor;
+    font-weight: bold;    
     border: none;
     border-radius: 5px;
     padding: 5px 8px 5px 8px;
@@ -327,11 +377,71 @@ td {
     background-color: @buttonbuybgcolor;
 }
 
-
 .remove-button:hover {
     background-color: darken(@buttonbuybgcolor, 10%);
 }
 
 .remove-button:active {
     background-color: darken(@buttonbuybgcolor, 20%);
+}
+
+.add-button {
+    background-color: lighten(@buttonbuybgcolor, 20%);
+    color: @buttonbuyfontcolor;
+    font-weight: bold;    
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.add-button:visited {
+    background-color: lighten(@buttonbuybgcolor, 20%);
+}
+
+.add-button:hover {
+    background-color: @buttonbuybgcolor;
+}
+
+.add-button:active {
+    background-color: darken(@buttonbuybgcolor, 10%);
+}
+
+.remove-all-button {
+    background-color: @buttonbuybgcolor;
+    color: @buttonbuyfontcolor;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 25px 15px 25px;
+    margin: 10px 10px 20px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.remove-all-button:visited {
+    background-color: @buttonbuybgcolor;
+}
+
+.remove-all-button:hover {
+    background-color: darken(@buttonbuybgcolor, 10%);
+}
+
+.remove-all-button:active {
+    background-color: darken(@buttonbuybgcolor, 20%);
+}
+
+.cart-sum {
+    padding-left: 10px;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+#cart-sum-value {
+    font-weight: bold;
+    font-size: 110%;
 }

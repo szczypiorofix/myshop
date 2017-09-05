@@ -25,11 +25,24 @@ class CartView extends \Core\Framework\MVC\View {
         
         $mainPanelComponent = new Component("mainpanel");
         $output = '<div class="cart-list" id="cartlist"><h3>Zawartość koszyka:</h3>'
-               .'<div style="margin-top: 20px;" id="cartlist-items">
+               .'<div style="margin-top: 20px;">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Ilość</th>
+                                <th>Nazwa</th>
+                                <th>Cena</th>
+                                <th>Usuń</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartlist-items">
+                        </tbody>
+                    </table>
                 </div>';
-                
+        $output .= '<div class="cart-sum"> Suma: <span id="cart-sum-value">0</span>';
+        $output .= '</div>';      
         $output .= '</div>';
-        $output .= '<button onclick="shoppingCart.clear();">Wyczyść koszyk</button>';
+        $output .= '<button class="remove-all-button" onclick="shoppingCart.clear();">Wyczyść koszyk</button>';
         $mainPanelComponent->addToComponent($output);
         $page['mainpanel'] = $mainPanelComponent->getComponent();
         

@@ -9,7 +9,7 @@
         <meta name="description" content="Wróblewski Piotr - My Shop">
         <meta name="author" content="Wróblewski Piotr">
         <meta property="og:title" content="Wróblewski Piotr - My Shop">
-        <meta property="og:image" content="https://www.wroblewskipiotr.pl/myshop/public/logo.jpg">
+        <meta property="og:image" content="https://www.wroblewskipiotr.pl/myshop/public/myshop-logo.png">
         <meta property="og:description" content="Wróblewski Piotr - My Shop">
         <link rel="icon" type="image/png" href="icon.png" />
         <?php 
@@ -19,7 +19,8 @@
             echo '<script>'.$params['settings']['head_script'].'</script>';
         ?>
         <title><?=$params['settings']['pageTitle']?></title>
-        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['settings']['css']?>">
+        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['settings']['css']?>?v=3">
         <link rel="stylesheet" href="<?=BASE_HREF?>/css/font-awesome.min.css">
     </head>
     <body>

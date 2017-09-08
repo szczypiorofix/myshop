@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 html,
 body {
   font-family: 'Roboto', sans-serif;
@@ -38,6 +43,8 @@ a:active {
 .mainpanel {
   width: 80%;
   float: left;
+  height: 100%;
+  margin-bottom: 60px;
 }
 .shopping-cart.button {
   padding: 15px 30px 15px 30px;
@@ -120,7 +127,7 @@ a:active {
   float: left;
 }
 .products-list-price-button button {
-  background-color: #e30613;
+  background-color: #ee3333;
   color: #eeeeee;
   border: none;
   border-radius: 4px;
@@ -131,15 +138,15 @@ a:active {
   text-shadow: 1px 1px #555555;
 }
 .products-list-price-button button:visited {
-  background-color: #ca0511;
+  background-color: #ec1b1b;
 }
 .products-list-price-button button:hover {
-  background-color: #b1050f;
+  background-color: #dc1212;
   cursor: pointer;
   box-shadow: 2px 2px 2px 2px #888888;
 }
 .products-list-price-button button:active {
-  background-color: #98040d;
+  background-color: #c41010;
   transform: translate(0px, 2px);
 }
 .navbar {
@@ -173,7 +180,7 @@ a:active {
   color: #bbbbbb;
 }
 .navbar-input {
-  height: 20px;
+  height: 30px;
   min-width: 100px;
   border: 3px solid gray;
   border-radius: 4px;
@@ -188,6 +195,9 @@ a:active {
 }
 .footer {
   clear: both;
+  position: fixed;
+  opacity: 0.9;
+  bottom: 0%;
   width: 100%;
   height: 20px;
   background-color: #444;
@@ -268,7 +278,7 @@ td {
   color: #000000;
 }
 .remove-button {
-  background-color: #e30613;
+  background-color: #f04b4b;
   color: #eeeeee;
   font-weight: bold;
   border: none;
@@ -279,16 +289,16 @@ td {
   box-shadow: 2px 2px 2px #888888;
 }
 .remove-button:visited {
-  background-color: #e30613;
+  background-color: #ee3333;
 }
 .remove-button:hover {
-  background-color: #b1050f;
+  background-color: #ec1b1b;
 }
 .remove-button:active {
-  background-color: #80030b;
+  background-color: #ad0e0e;
 }
 .add-button {
-  background-color: #fa555e;
+  background-color: #f26262;
   color: #eeeeee;
   font-weight: bold;
   border: none;
@@ -301,16 +311,16 @@ td {
   box-shadow: 2px 2px 2px #888888;
 }
 .add-button:visited {
-  background-color: #fa555e;
+  background-color: #ee3333;
 }
 .add-button:hover {
-  background-color: #e30613;
+  background-color: #ee3333;
 }
 .add-button:active {
-  background-color: #b1050f;
+  background-color: #dc1212;
 }
 .remove-all-button {
-  background-color: #e30613;
+  background-color: #ee3333;
   color: #eeeeee;
   font-weight: bold;
   border: none;
@@ -321,13 +331,36 @@ td {
   box-shadow: 2px 2px 2px #888888;
 }
 .remove-all-button:visited {
-  background-color: #e30613;
+  background-color: #ee3333;
 }
 .remove-all-button:hover {
-  background-color: #b1050f;
+  background-color: #dc1212;
 }
 .remove-all-button:active {
-  background-color: #80030b;
+  background-color: #ad0e0e;
+}
+.buy-button {
+  background-color: #0CC00C;
+  color: #eeeeee;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  padding: 15px 25px 15px 25px;
+  margin: 10px 10px 20px 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #888888;
+}
+.buy-button:visited {
+  background-color: #0CC00C;
+}
+.buy-button:hover {
+  background-color: #099009;
+}
+.buy-button:active {
+  background-color: #066006;
+}
+.buttons-group {
+  display: inline-block;
 }
 .cart-sum {
   padding-left: 10px;
@@ -337,4 +370,62 @@ td {
 #cart-sum-value {
   font-weight: bold;
   font-size: 110%;
+}
+.login-register-main-div {
+  width: 100%;
+  background: #333333;
+  color: #eeeeee;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+}
+.login-register-main-div.login {
+  width: 45%;
+  float: left;
+  padding: 10px 5px 20px 10px;
+}
+.login-register-main-div.or {
+  width: 10%;
+  height: 100%;
+  float: left;
+  margin-top: 0 auto;
+}
+.login-register-main-div.register {
+  width: 45%;
+  float: left;
+  padding: 10px 5px 20px 10px;
+}
+.form-horizontal {
+  display: block;
+  text-align: left;
+  margin-top: 0em;
+}
+.input-group {
+  margin-bottom: 15px;
+}
+.form-input {
+  display: block;
+  width: 70%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10%;
+  line-height: 1.42857143;
+  float: left;
+}
+.form-label {
+  float: left;
+  padding-top: 12px;
+  text-align: right;
+  width: 20%;
+}
+.form-input input {
+  width: 100%;
+  height: 30px;
+  border: 3px solid gray;
+  border-radius: 4px;
+  padding: 2px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.15;
+  margin: 0;
 }

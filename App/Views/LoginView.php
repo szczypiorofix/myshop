@@ -6,9 +6,9 @@ use Templates\Components\NavbarComponent;
 use Templates\Components\FooterComponent;
 use Templates\Components\SideBarComponent;
 use Templates\Components\JumbotronComponent;
-use Templates\Components\MainPanelCartComponent;
+use Templates\Components\LoginRegisterComponent;
 
-class CartView extends \Core\Framework\MVC\View {
+class LoginView extends \Core\Framework\MVC\View {
     
     
     /**
@@ -22,7 +22,7 @@ class CartView extends \Core\Framework\MVC\View {
         
         $page['jumbotron'] = '';
         
-        $page['mainpanel'] = MainPanelCartComponent::getContent();
+        $page['mainpanel'] = LoginRegisterComponent::getContent([]);
 
         $page['sidebar'] = SideBarComponent::getContent();
 

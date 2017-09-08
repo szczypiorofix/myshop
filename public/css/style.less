@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 @backgroundcolor: #fafafa;
 @mainfontcolor: #323232;
 @baselinkcolor: #507080;
-@buttonbuybgcolor: #e30613;
+@buttonaddtocartbgcolor: #ee3333;
+@buttonaddtocartfontcolor: #eeeeee;
+@buttonbuybgcolor: #0CC00C;
 @buttonbuyfontcolor: #eeeeee;
 @navbarbgcolor: #444;
 @navbarlinkcolor: #eee;
@@ -58,6 +66,8 @@ a:active {
 .mainpanel {
     width: 80%;
     float: left;
+    height: 100%;
+    margin-bottom: 60px;
 }
 
 .shopping-cart.button{
@@ -158,8 +168,8 @@ a:active {
 }
 
 .products-list-price-button button {
-    background-color: @buttonbuybgcolor;
-    color: @buttonbuyfontcolor;
+    background-color: @buttonaddtocartbgcolor;
+    color: @buttonaddtocartfontcolor;
     border: none;
     border-radius: 4px;
     padding: 10px 25px 10px 25px;
@@ -170,17 +180,17 @@ a:active {
 }
 
 .products-list-price-button button:visited {
-    background-color: darken(@buttonbuybgcolor, 5%);
+    background-color: darken(@buttonaddtocartbgcolor, 5%);
 }
 
 .products-list-price-button button:hover {
-    background-color: darken(@buttonbuybgcolor, 10%);
+    background-color: darken(@buttonaddtocartbgcolor, 10%);
     cursor: pointer;
     box-shadow: 2px 2px 2px 2px #888888;
 }
 
 .products-list-price-button button:active {
-    background-color: darken(@buttonbuybgcolor, 15%);
+    background-color: darken(@buttonaddtocartbgcolor, 15%);
     transform: translate(0px, 2px);
 }
 
@@ -220,7 +230,7 @@ a:active {
 }
 
 .navbar-input {
-    height: 20px;
+    height: 30px;
     min-width: 100px;
     border: 3px solid gray;
     border-radius: 4px;
@@ -237,6 +247,9 @@ a:active {
 
 .footer {
     clear:both;
+    position: fixed;
+    opacity: 0.9;
+    bottom: 0%;
     width: 100%;
     height: 20px;
     background-color: @navbarbgcolor;
@@ -330,7 +343,7 @@ td {
 }
 
 .remove-button {
-    background-color: @buttonbuybgcolor;
+    background-color: lighten(@buttonaddtocartbgcolor, 5%);
     color: @buttonbuyfontcolor;
     font-weight: bold;    
     border: none;
@@ -342,19 +355,19 @@ td {
 }
 
 .remove-button:visited {
-    background-color: @buttonbuybgcolor;
+    background-color: @buttonaddtocartbgcolor;
 }
 
 .remove-button:hover {
-    background-color: darken(@buttonbuybgcolor, 10%);
+    background-color: darken(@buttonaddtocartbgcolor, 5%);
 }
 
 .remove-button:active {
-    background-color: darken(@buttonbuybgcolor, 20%);
+    background-color: darken(@buttonaddtocartbgcolor, 20%);
 }
 
 .add-button {
-    background-color: lighten(@buttonbuybgcolor, 20%);
+    background-color: lighten(@buttonaddtocartbgcolor, 10%);
     color: @buttonbuyfontcolor;
     font-weight: bold;    
     border: none;
@@ -368,19 +381,19 @@ td {
 }
 
 .add-button:visited {
-    background-color: lighten(@buttonbuybgcolor, 20%);
+    background-color: @buttonaddtocartbgcolor;
 }
 
 .add-button:hover {
-    background-color: @buttonbuybgcolor;
+    background-color: @buttonaddtocartbgcolor;
 }
 
 .add-button:active {
-    background-color: darken(@buttonbuybgcolor, 10%);
+    background-color: darken(@buttonaddtocartbgcolor, 10%);
 }
 
 .remove-all-button {
-    background-color: @buttonbuybgcolor;
+    background-color: @buttonaddtocartbgcolor;
     color: @buttonbuyfontcolor;
     font-weight: bold;
     border: none;
@@ -392,15 +405,43 @@ td {
 }
 
 .remove-all-button:visited {
-    background-color: @buttonbuybgcolor;
+    background-color: @buttonaddtocartbgcolor;
 }
 
 .remove-all-button:hover {
-    background-color: darken(@buttonbuybgcolor, 10%);
+    background-color: darken(@buttonaddtocartbgcolor, 10%);
 }
 
 .remove-all-button:active {
+    background-color: darken(@buttonaddtocartbgcolor, 20%);
+}
+
+.buy-button {
+    background-color: @buttonbuybgcolor;
+    color: @buttonbuyfontcolor;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 25px 15px 25px;
+    margin: 10px 10px 20px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.buy-button:visited {
+    background-color: @buttonbuybgcolor;
+}
+
+.buy-button:hover {
+    background-color: darken(@buttonbuybgcolor, 10%);
+}
+
+.buy-button:active {
     background-color: darken(@buttonbuybgcolor, 20%);
+}
+
+.buttons-group {
+    display: inline-block;
 }
 
 .cart-sum {
@@ -412,4 +453,71 @@ td {
 #cart-sum-value {
     font-weight: bold;
     font-size: 110%;
+}
+
+.login-register-main-div {
+    width: 100%;
+    background: #333333;
+    color: #eeeeee;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+}
+
+.login-register-main-div.login {
+    width: 45%;
+    float:left;
+    padding: 10px 5px 20px 10px;
+}
+
+.login-register-main-div.or {
+    width: 10%;
+    height: 100%;
+    float:left;
+    margin-top: 0 auto;
+}
+
+.login-register-main-div.register {
+    width: 45%;
+    float:left;
+    padding: 10px 5px 20px 10px;
+}
+
+.form-horizontal {
+    display: block;
+    text-align: left;
+    margin-top: 0em;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.form-input {
+    display: block;
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    line-height: 1.42857143;
+    float:left;
+}
+
+.form-label {
+    float:left;
+    padding-top: 12px;
+    text-align: right;
+    width: 20%;
+}
+
+.form-input input {
+    width: 100%;
+    height: 30px;
+    border: 3px solid gray;
+    border-radius: 4px;
+    padding: 2px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.15;
+    margin: 0;
 }

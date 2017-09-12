@@ -7,5 +7,3 @@
 	Order Allow,Deny
 	Deny from all
 </Files>
-
-#ErrorDocument 404 /page404.html

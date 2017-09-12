@@ -1,8 +1,13 @@
 <?php
 namespace Views;
-use Templates\Components\Component;
+use Templates\Components\NavbarComponent;
+use Templates\Components\FooterComponent;
+use Templates\Components\SideBarComponent;
+use Templates\Components\JumbotronComponent;
+use Templates\Components\MainPanelListComponent;
+
 /**
- * Klasa DefaultView - domyślny widok domyślnego kontrolera (DefaultController).
+ * Klasa ProductView - widok kontrolera produktu.
  */
 class ProductView extends \Core\Framework\MVC\View {
     
@@ -14,58 +19,17 @@ class ProductView extends \Core\Framework\MVC\View {
     public function show($params) {
         
         $page = [];
-        $navbarComponent = new Component("navbar");
-        $navbarComponent->addToComponent(
-                '<a class="navbar-btn" href="/myshop">..:: MyShop ::..</a>
-                <input type="text" class="navbar-input" placeholder="Szukaj...">
-                <button class="navbar-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                <a class="navbar-btn" href="/myshop/userpanel">User</a>
-                <a class="navbar-btn" href="/myshop/contact">Kontakt</a>');
-        $page['navbar'] = $navbarComponent->getComponent();
         
-        $jumbotronComponent = new Component("jumbotron");
-        $jumbotronComponent->addToComponent('<div class="shopping-cart">
-                    <button class="shopping-cart button" onclick="window.location=\''.BASE_HREF.'/cart\'">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span id="shopping-cart-price-id" class="shopping-cart price">0.00</span>
-                        <span id="shopping-cart-currency-id" class="shopping-cart currency">PLN</span>
-                    </button>
-                </div>');
-        $page['jumbotron'] = $jumbotronComponent->getComponent();
+        $page['navbar'] = NavbarComponent::getContent(['loggedIn' => false]);
         
-        $mainPanelComponent = new Component("mainpanel");
-        $output = '<div class="products-list">';
-        foreach($params['results'] as $product) {
-            $arg = "{name: '".$product['name']."', price: '".$product['price']."', code: '".$product['code']."'}";
-            $output .= ''
-            . '<div class="product-on-list">'
-                . '<h2><a href="#">'.$product['name'].'</a></h2>'
-                . '<div class="products-list-img-price">'
-                    . '<div class="products-list-image">'
-                        . '<a href="#"><img class="img-responsive products-list-img" src="'.BASE_HREF.'/images/products/'.$product['image'].'"/></a>'
-                    . '</div>'
-                    . '<div class="products-list-price-button">'
-                        . '<p class="products-list-price">'.$product['price'].' PLN</p>'
-                        . '<button onclick="shoppingCart.add('.$arg.')">Dodaj do koszyka</button>'
-                    . '</div>'
-                . '</div>'
-                . '<p class="products-list-description">'.$product['description'].'</p>'
-            . '</div>';
-        }
-        $output .= '</div>';
-        $mainPanelComponent->addToComponent($output);
-        $page['mainpanel'] = $mainPanelComponent->getComponent();
+        $page['jumbotron'] = JumbotronComponent::getContent();
         
-        $sideBarComponent = new Component("sidebar");
-        $sideBarComponent->addToComponent('<div class="sidebar-content">
-            Custom elements in product view;
-                </div>');
-        $page['sidebar'] = $sideBarComponent->getComponent();
-        
-        $footerComponent = new Component("footer");
-        $footerComponent->addToComponent('<p>Wróblewski Piotr 2017. All rights reserved.</p>');
-        $page['footer'] = $footerComponent->getComponent();
-        
+        $page['mainpanel'] = MainPanelListComponent::getContent($params['results']);
+
+        $page['sidebar'] = SideBarComponent::getContent();
+
+        $page['footer'] = FooterComponent::getContent();
+
         include_once parent::DEFAULT_TEMPLATE_FILENAME;
     }
     

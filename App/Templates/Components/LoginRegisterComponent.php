@@ -19,13 +19,13 @@ class LoginRegisterComponent {
             <p>Login</p>
             <div class="form-horizontal">
                 <div class="input-group">
-                    <label class="form-label">E-mail</label>
+                    <label class="form-label"><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
                     <div class="form-input">
                         <input type="text" placeholder="E-mail" required/>
                     </div>   
                 </div>
                 <div class="input-group">
-                    <label class="form-label">Password</label>
+                    <label class="form-label"><i class="fa fa-key" aria-hidden="true"></i></label>
                     <div class="form-input">
                         <input type="password" placeholder="Hasło" required/>
                     </div>   

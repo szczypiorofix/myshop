@@ -24,7 +24,7 @@ define('BASE_DIR', dirname(__DIR__) . DS);
  * Nazwa pliku konfiguracji. 
  * @const CONFIG_FILE
  */
-define("CONFIG_FILE", BASE_DIR . "config.ini");
+define("CONFIG_FILE", BASE_DIR . ".config");
 
 /**
  * Lokalizacja głównych plików aplikacji. 

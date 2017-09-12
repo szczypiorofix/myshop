@@ -13,7 +13,7 @@ final class Config {
 
     private function __clone() {}
     
-    final public static function getInstance() {
+    final private static function getInstance() {
         if (!self::$instance) {
           self::$instance = new Config();
         }

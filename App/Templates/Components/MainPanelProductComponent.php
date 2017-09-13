@@ -2,7 +2,7 @@
 
 namespace Templates\Components;
 
-class MainPanelListComponent {
+class MainPanelProductComponent {
     
     private static $content = '';
 
@@ -25,7 +25,7 @@ class MainPanelListComponent {
                         . '<button onclick="shoppingCart.add('.$arg.')">Dodaj do koszyka</button>'
                     . '</div>'
                 . '</div>'
-                . '<p class="products-list-description">'.$product['short_description'].'</p>'
+                . '<p class="products-list-description">'.$product['description'].'</p>'
             . '</div>';
         }
 

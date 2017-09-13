@@ -4,7 +4,7 @@ use Templates\Components\NavbarComponent;
 use Templates\Components\FooterComponent;
 use Templates\Components\SideBarComponent;
 use Templates\Components\JumbotronComponent;
-use Templates\Components\MainPanelListComponent;
+use Templates\Components\MainPanelProductComponent;
 
 /**
  * Klasa ProductView - widok kontrolera produktu.
@@ -24,7 +24,7 @@ class ProductView extends \Core\Framework\MVC\View {
         
         $page['jumbotron'] = JumbotronComponent::getContent();
         
-        $page['mainpanel'] = MainPanelListComponent::getContent($params['results']);
+        $page['mainpanel'] = MainPanelProductComponent::getContent($params['results']);
 
         $page['sidebar'] = SideBarComponent::getContent();
 

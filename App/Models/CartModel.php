@@ -27,9 +27,7 @@ class CartModel extends \Core\Framework\MVC\Model {
                     'results' => []
                 ]
         );
-        
-        //$this->results = $_COOKIE;
-        
+                
         $this->addResults($this->results);
     }
     

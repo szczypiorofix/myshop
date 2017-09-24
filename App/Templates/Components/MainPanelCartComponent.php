@@ -10,7 +10,8 @@ class MainPanelCartComponent {
     public function __clone() {}
 
     public static function getContent() {
-          return 
+        $checkoutUrl = BASE_HREF.'checkout';
+        return 
 <<<HTML
 <div class="mainpanel">
     <div class="cart-list" id="cartlist">
@@ -34,7 +35,7 @@ class MainPanelCartComponent {
     </div>
     <div class="buttons-group">
         <button class="remove-all-button" onclick="shoppingCart.clear();">Wyczyść koszyk</button>
-        <button class="buy-button" onclick="console.log(this)">Przejdź do kasy</button>
+        <button class="buy-button" onclick="window.location.href = '{$checkoutUrl}' ">Przejdź do kasy</button>
     </div>
 </div>
 HTML;

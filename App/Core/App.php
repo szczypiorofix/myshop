@@ -53,6 +53,7 @@ class App {
             Router::addRoute('product', 'ProductController', 'index');
             Router::addRoute('cart', 'CartController', 'index');
             Router::addRoute('login', 'LoginController', 'index');
+            Router::addRoute('checkout', 'CheckOutController', 'checkout');
         } catch (FrameworkException $ex) {
             echo $ex->showError();
         }

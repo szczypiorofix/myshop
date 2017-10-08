@@ -14,7 +14,8 @@ class MainPanelCheckoutComponent {
         return 
 <<<HTML
 <div class="mainpanel">
-        <h1>HELLO CHECKOUT</h1>
+        <h1>This is checkout view</h1>
+        <h2>Tutaj będzie zawartość podsumowania zamówienia ...</h2>
 </div>
 HTML;
     }

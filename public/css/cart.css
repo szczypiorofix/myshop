@@ -1,0 +1,9 @@
+.cart-sum {
+  padding-left: 10px;
+  font-size: 110%;
+  font-weight: bold;
+}
+#cart-sum-value {
+  font-weight: bold;
+  font-size: 110%;
+}

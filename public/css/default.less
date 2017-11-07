@@ -1,0 +1,109 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: @backgroundcolor;
+    color: @mainfontcolor;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.page-title {
+    margin-left: 30px;
+    width: 90%;
+    color: lighten(@mainfontcolor, 20%);
+}
+
+.page-title h2 {
+    margin-left: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: @baselinkcolor;
+}
+
+a:visited {
+    color: @baselinkcolor;
+}
+
+a:hover {
+    color: darken(@baselinkcolor, 20%);
+    cursor: pointer;
+}
+
+a:active {
+    color: darken(@baselinkcolor, 30%);
+}
+
+.maindiv {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.mainpanel {
+    width: 80%;
+    float: left;
+    height: 100%;
+}
+
+.footer {
+    clear:both;
+    position: fixed;
+    display: block;
+    opacity: 0.9;
+    bottom: 0%;
+    width: 100%;
+    height: 45px;
+    background-color: @navbarbgcolor;
+    color: @navbarlinkcolor;
+    padding: 5px 0 5px 0;
+    text-align: center;
+}
+
+.footer p {
+    padding: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
+}
+
+table {
+    color: #eee;
+    background-color: #000;
+    padding: 3px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: left;
+    font-size: 120%;
+    background-color: #344;
+    padding: 10px;
+}
+
+td {
+    background-color: #334;
+    padding: 10px;
+}
+
+.sidebar {
+    width: 19%;
+    float: left;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.sidebar-content {
+    padding: 10px;
+}
+
+.jumbotron {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    margin: 30px 10px 0 10px;
+}

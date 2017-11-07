@@ -1,0 +1,50 @@
+.navbar {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    background-color: @navbarbgcolor;
+    font-size: 0;
+}
+
+.navbar-btn {
+    padding: 10px 20px 10px 20px;
+    margin: 0;
+    font-size: 140%;
+    font-weight: 400;
+    background-color: @navbarbgcolor;
+    color: @navbarlinkcolor;
+    border: none;
+    font-size: 20px;
+}
+
+.navbar-btn:visited {
+    color: @navbarlinkcolor;
+}
+
+.navbar-btn:hover {
+    cursor: pointer;
+    background-color: darken(@navbarbgcolor, 10%);
+    color: darken(@navbarlinkcolor, 10%);
+}
+
+.navbar-btn:active {
+    color: darken(@navbarlinkcolor, 20%);
+}
+
+.navbar-input {
+    height: 30px;
+    min-width: 100px;
+    border: 3px solid gray;
+    border-radius: 4px;
+    padding: 2px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.navbar-input:focus {
+    border: 3px solid lightblue;
+}

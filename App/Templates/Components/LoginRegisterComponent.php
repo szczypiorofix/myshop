@@ -14,8 +14,11 @@ class LoginRegisterComponent {
         return 
 <<<HTML
 <div class="mainpanel">
-    <div class="login-register-main-panel">
-        Podsumowanie zamówienia
+    <div class="login-register">
+        Login / Register panel:
+        <div class="input-group">
+            Hello!
+        </div>
     </div>
 </div>
 HTML;

@@ -1,0 +1,7 @@
+{    
+    "less.compile": {
+        "compress":  false,  // true => remove surplus whitespace
+        "sourceMap": true,  // true => generate source maps (.css.map files)
+        "out": "${workspaceRoot}\\public\\css\\"
+    }
+}

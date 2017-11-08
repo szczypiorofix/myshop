@@ -1,4 +1,9 @@
-.login-register-main-panel {
-  padding: 10px;
-  background-color: #FC0;
+.mainpanel .login-register {
+  padding-top: 20px;
+  background-color: blue;
+}
+.mainpanel .login-register .input-group {
+  background-color: green;
+  color: pink;
+  padding-top: 30px;
 }

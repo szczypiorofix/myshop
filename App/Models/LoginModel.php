@@ -14,7 +14,7 @@ class LoginModel extends \Core\Framework\MVC\Model {
                 [
                     'settings' => [
                         'pageTitle' => 'MyShop',
-                        'css' => 'style.css',
+                        'css' => ['variables.css', 'style.css', 'default.css', 'cart.css', 'login-register.css'],
                         'head_js' => ['mainheadscript.js'],
                         'head_script' => '',
                         'body_js' => ['mainbodyscript.js'],

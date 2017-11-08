@@ -49,7 +49,12 @@
         ?>
 
         <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="<?=BASE_HREF?>/css/<?=$params['settings']['css']?>?v=3">
+        
+        <?php 
+            foreach($params['settings']['css'] as $css_file) {
+                echo '<link rel="stylesheet" type="text/css" href="'.BASE_HREF.'/css/'.$css_file.'?v=3">';
+            }
+        ?>
         <link rel="stylesheet" href="<?=BASE_HREF?>/css/font-awesome.min.css">
     </head>
     <body>

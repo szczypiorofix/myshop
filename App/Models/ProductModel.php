@@ -17,7 +17,7 @@ class ProductModel extends \Core\Framework\MVC\Model {
                 [
                     'settings' => [
                         'pageTitle' => 'MyShop',
-                        'css' => ['variables.css', 'style.css', 'default.css', 'cart.css', 'login-register.css'],
+                        'css' => parent::$default_css_files,
                         'head_js' => ['mainheadscript.js'],
                         'head_script' => '',
                         'body_js' => ['mainbodyscript.js'],

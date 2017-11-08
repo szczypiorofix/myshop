@@ -9,6 +9,14 @@ namespace Core\Framework\MVC;
  */
 abstract class Model {
  
+    public static $default_css_files = [
+        'variables.css', 
+        'style.css', 
+        'default.css', 
+        'cart.css', 
+        'login-register.css'
+    ];
+
     /**
      * Tablica z danymi strony, która przekazywana jest do widoku.
      * @var array Tablica asocjacyjna, zawierająca 2 główne tablice:
@@ -18,7 +26,7 @@ abstract class Model {
     private $data = [
         'settings' => [
             'pageTitle' => 'MyShop',
-            'css' => 'style.css',
+            'css' => ['style.css'],
             'js' => 'mainscript.js',
             'model' => 'DefaultModel',
             'view' => 'DefaultView',

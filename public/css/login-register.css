@@ -1,9 +1,10 @@
 .mainpanel .login-register {
   padding-top: 20px;
-  background-color: blue;
+  background-color: #6464e0;
 }
 .mainpanel .login-register .input-group {
-  background-color: green;
+  background-color: #529252;
   color: pink;
   padding-top: 30px;
 }
+/*# sourceMappingURL=./login-register.css.map */

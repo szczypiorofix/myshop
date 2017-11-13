@@ -20,6 +20,7 @@ var shoppingCart = {
         localStorage.setItem('myshop_cart', JSON.stringify(this.cartItemsList));
         this.showPanel();
     },
+
     showPanel: function() {
         var items = localStorage.getItem('myshop_cart');
         if (items !== null && items !== '') {
@@ -34,6 +35,7 @@ var shoppingCart = {
             $('#cart-sum-value').html(this.cartSum +' PLN');
         }
     },
+    
     removeFromCart: function(v) {
         let itemsInStorage = JSON.parse(localStorage.getItem('myshop_cart'));
         let tempStorage = [];
@@ -45,6 +47,7 @@ var shoppingCart = {
         localStorage.setItem('myshop_cart', JSON.stringify(tempStorage));
         this.showPanel();
     },
+
     update: function() {
         this.itemsList = localStorage.getItem('myshop_cart');
         if (this.itemsList !== '' && $('#shopping-cart-price-id').get(0) !== null) {
@@ -58,7 +61,8 @@ var shoppingCart = {
             $('#shopping-cart-price-id').html(priceSum);
         }
     },
-    add: function(item) {
+
+    addItem: function(item) {
         this.itemsStorage = localStorage.getItem('myshop_cart');
         
         if (this.itemsStorage !== '' && this.itemsStorage !== null) {
@@ -85,6 +89,7 @@ var shoppingCart = {
         this.update();
         
     },
+
     clear: function() {
         localStorage.setItem('myshop_cart', []);
         location.reload();

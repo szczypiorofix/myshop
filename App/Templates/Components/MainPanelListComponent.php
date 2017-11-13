@@ -22,7 +22,7 @@ class MainPanelListComponent {
                     . '</div>'
                     . '<div class="products-list-price-button">'
                         . '<p class="products-list-price">'.$product['price'].' PLN</p>'
-                        . '<button onclick="shoppingCart.add('.$arg.')">Dodaj do koszyka</button>'
+                        . '<button onclick="shoppingCart.addItem('.$arg.')">Dodaj do koszyka</button>'
                     . '</div>'
                 . '</div>'
                 . '<p class="products-list-description">'.$product['short_description'].'</p>'

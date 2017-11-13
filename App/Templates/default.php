@@ -59,11 +59,13 @@
     </head>
     <body>
         <?=$page['navbar'];?>
+        
         <div class="maindiv">
             <?=$page['jumbotron'];?>
             <?=$page['mainpanel'];?>
             <?=$page['sidebar'];?>
         </div>
+
         <?=$page['footer'];?>
         
         <!-- ########## JQUERY 3.2.1 SCRIPT ########## -->

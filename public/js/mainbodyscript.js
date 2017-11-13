@@ -28,7 +28,6 @@ var shoppingCart = {
             for (var i = 0; i < this.cartItemsList.length; i++) {
                 this.cartSum += this.cartItemsList[i].price * this.cartItemsList[i].amount;
             }
-            //console.log(this.cartItemsList);
             TemplateEngine.init('cartlist-items');
             TemplateEngine.addButtons(this.cartItemsList);
             TemplateEngine.show();
@@ -47,7 +46,6 @@ var shoppingCart = {
         this.showPanel();
     },
     update: function() {
-        this.shoppingCartPrice = $('#shopping-cart-price-id').get(0);
         this.itemsList = localStorage.getItem('myshop_cart');
         if (this.itemsList !== '' && $('#shopping-cart-price-id').get(0) !== null) {
             let items = JSON.parse(this.itemsList);
@@ -83,7 +81,6 @@ var shoppingCart = {
             }
         }
         if (!addAnother) this.itemsList.push(temp);
-        //console.log(this.itemsList);
         localStorage.setItem('myshop_cart', JSON.stringify(this.itemsList));
         this.update();
         

@@ -3,7 +3,7 @@ var TemplateEngine = {
     _content: null,
 
     init: function(el) {
-        this.el = document.getElementById(el);
+        this.el = $(el).get(0);
         this._content = '';
     },
     addButtons: function(data) {

@@ -66,6 +66,10 @@
         </div>
         <?=$page['footer'];?>
         
+        <!-- ########## JQUERY 3.2.1 SCRIPT ########## -->
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+        <!-- ########## APP SCRIPTS ########## -->
         <?php 
             foreach($params['settings']['body_js'] as $script) {
                 echo "<script src=".BASE_HREF."js/".$script."></script>";

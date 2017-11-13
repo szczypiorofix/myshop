@@ -1,6 +1,5 @@
 
 var shoppingCart = {
-    shoppingCartPrice: null,
     itemsList: null,
     itemsStorage: null,
     cartItemsList: null,
@@ -33,7 +32,7 @@ var shoppingCart = {
             TemplateEngine.init('cartlist-items');
             TemplateEngine.addButtons(this.cartItemsList);
             TemplateEngine.show();
-            document.getElementById('cart-sum-value').innerHTML = this.cartSum +' PLN';
+            $('#cart-sum-value').html(this.cartSum +' PLN');
         }
     },
     removeFromCart: function(v) {
@@ -48,9 +47,9 @@ var shoppingCart = {
         this.showPanel();
     },
     update: function() {
-        this.shoppingCartPrice = document.getElementById('shopping-cart-price-id');
+        this.shoppingCartPrice = $('#shopping-cart-price-id').get(0);
         this.itemsList = localStorage.getItem('myshop_cart');
-        if (this.itemsList !== '' && this.shoppingCartPrice !== null) {
+        if (this.itemsList !== '' && $('#shopping-cart-price-id').get(0) !== null) {
             let items = JSON.parse(this.itemsList);
             let priceSum = 0;
             if (items !== null) {
@@ -58,7 +57,7 @@ var shoppingCart = {
                     priceSum += parseInt(item.price * item.amount);
                 });
             }
-            this.shoppingCartPrice.innerHTML = priceSum;
+            $('#shopping-cart-price-id').html(priceSum);
         }
     },
     add: function(item) {
@@ -96,7 +95,10 @@ var shoppingCart = {
 };
 
 
-window.addEventListener('DOMContentLoaded', function() {
-    //localStorage.setItem('myshop_cart', null);
+// START APP
+$(function() {
     shoppingCart.update();
+    if (typeof jQuery != 'undefined') {  
+        console.log("jQuery version " +jQuery.fn.jquery);
+    }
 });

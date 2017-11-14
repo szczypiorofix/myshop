@@ -29,9 +29,11 @@ var shoppingCart = {
             for (var i = 0; i < this.cartItemsList.length; i++) {
                 this.cartSum += this.cartItemsList[i].price * this.cartItemsList[i].amount;
             }
-            TemplateEngine.init('cartlist-items');
-            TemplateEngine.addButtons(this.cartItemsList);
-            TemplateEngine.show();
+
+            //TemplateEngine.init('cartlist-items');
+            //TemplateEngine.addButtons(this.cartItemsList);
+            //TemplateEngine.show();
+            
             $('#cart-sum-value').html(this.cartSum +' PLN');
         }
     },

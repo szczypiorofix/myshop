@@ -17,4 +17,5 @@ var TemplateEngine = {
     }
 };
 
-console.log('TemplateEngine loaded.');
+
+//console.log('TemplateEngine loaded.');

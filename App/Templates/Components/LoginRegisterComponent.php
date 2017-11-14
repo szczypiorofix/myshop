@@ -15,9 +15,25 @@ class LoginRegisterComponent {
 <<<HTML
 <div class="mainpanel">
     <div class="login-register">
-        Login / Register panel:
+        <h3>LOGIN</h3>
         <div class="input-group">
-            Hello!
+            <p>login:</p>
+            <input type="text">
+            <p>password:</p>
+            <input type="text">
+            <button>Login</button>
+        </div>
+        <h3>OR REGISTER</h3>
+        <div class="input-group">
+            <p>login:</p>
+            <input type="text">
+            <p>e-mail:</p>
+            <input type="email">
+            <p>password:</p>
+            <input type="password">
+            <p>re-type password:</p>
+            <input type="password">
+            <button>Login</button>
         </div>
     </div>
 </div>

@@ -55,7 +55,10 @@
                 echo '<link rel="stylesheet" type="text/css" href="'.BASE_HREF.'/css/'.$css_file.'?v=3">';
             }
         ?>
+
         <link rel="stylesheet" href="<?=BASE_HREF?>/css/font-awesome.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     </head>
     <body>
         <?=$page['navbar'];?>
